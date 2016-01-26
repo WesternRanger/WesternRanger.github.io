@@ -5,16 +5,24 @@
   
   <title>清除浮动常用的方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="先说不清除浮动的效果：给父元素这只边框都不会把他们包裹起来，俗称高度塌陷。
+然后说说几个不常用的清除浮动方法，比如：
+1&amp;#60;div style=&amp;#34;overflow:hidden&amp;#34;&amp;#62;&amp;#10;&amp;#9;&amp;#60;div style=&amp;#34;float:left;&amp;#34;&amp;#62;&amp;#60;/div&amp;#62;&amp;#10;&amp;#9;&amp;#60;div style=&amp;#34;fl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="清除浮动常用的方法">
 <meta property="og:url" content="http://article.western-ranger.com/2016/01/26/清除浮动常用的方法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-01-26T09:16:01.000Z">
+<meta property="og:description" content="先说不清除浮动的效果：给父元素这只边框都不会把他们包裹起来，俗称高度塌陷。
+然后说说几个不常用的清除浮动方法，比如：
+1&amp;#60;div style=&amp;#34;overflow:hidden&amp;#34;&amp;#62;&amp;#10;&amp;#9;&amp;#60;div style=&amp;#34;float:left;&amp;#34;&amp;#62;&amp;#60;/div&amp;#62;&amp;#10;&amp;#9;&amp;#60;div style=&amp;#34;fl">
+<meta property="og:image" content="http://img.blog.csdn.net/20150310172258314">
+<meta property="og:image" content="http://img.blog.csdn.net/20150310172507982">
+<meta property="og:updated_time" content="2016-01-26T09:17:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清除浮动常用的方法">
-<meta name="twitter:description">
+<meta name="twitter:description" content="先说不清除浮动的效果：给父元素这只边框都不会把他们包裹起来，俗称高度塌陷。
+然后说说几个不常用的清除浮动方法，比如：
+1&amp;#60;div style=&amp;#34;overflow:hidden&amp;#34;&amp;#62;&amp;#10;&amp;#9;&amp;#60;div style=&amp;#34;float:left;&amp;#34;&amp;#62;&amp;#60;/div&amp;#62;&amp;#10;&amp;#9;&amp;#60;div style=&amp;#34;fl">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -83,7 +91,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>先说不清除浮动的效果：<br><img src="http://img.blog.csdn.net/20150310172258314" alt="这里写图片描述"><br>给父元素这只边框都不会把他们包裹起来，俗称高度塌陷。</p>
+<p>然后说说几个不常用的清除浮动方法，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div style=&#34;overflow:hidden&#34;&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>就是给父元素设置overflow属性的那种，具体样式就不写了；<br>这个原理现在说一下。刚写这篇文章的时候并不知道给父元素设置overflow：hidden为什么可以防止高度塌陷。</p>
+<p>要说明白这个问题首先需要知道bfc是个什么鬼。具体参照<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="external">BFC神奇背后的原理</a><br>这里的原理就是：“overflow:hidden;“ 使父元素成为了一个bfc环境，bfc元素计算高度时，浮动元素也参与计算。</p>
+</blockquote>
+<p>还有这种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div style=&#34;&#34;&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;clear:both&#34;&#62;&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这种的是在浮动元素最后加一个空的div然后给他清楚浮动，这个原理就是让它左右两边都不挨着浮动元素，所以他就钻到父元素的最下边了，但是还是在父元素内，所以就把父元素给撑起来了。不会塌陷。效果如下：</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20150310172507982" alt="正常状态"></p>
+<p>还有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div style=&#34;float:left;&#34;&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>给父元素也加浮动，这种方式是极不好的，会影响父元素的定位</p>
+</blockquote>
+<p>还有一种极不好的，是给设置父元素的display属性为table。这个table属性的元素布局的时候坑太多了，所以这种清除浮动的方式是极不推荐的。</p>
+<p>最后被大家所广泛采用的一种方式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;style&#62;&#10;&#9;.box&#123;&#10;&#9;&#9;width:400px;&#10;&#9;&#9;border:red solid 1px;&#10;&#9;&#125;&#10;&#9;.clearfix&#123;&#10;&#9;&#9;*zoom:1;&#9;&#10;&#9;&#125;&#10;&#9;.clearfix:after&#123;&#10;&#9;&#9;display:block;&#10;&#9;&#9;content:&#34;&#34;;&#10;&#9;&#9;clear:both;&#10;&#9;&#125;&#10;&#9;.one&#123;&#10;&#9;&#9;width:100px;&#10;&#9;&#9;height:100px;&#10;&#9;&#9;background-color:yellow;&#10;&#9;&#9;margin:5px;&#10;&#9;&#9;float:left;&#10;&#9;&#125;&#10;&#60;/style&#62;&#10;&#60;div class=&#34;box clearfix&#34;&#62;&#10;&#9;&#60;div class=&#34;one&#34;&#62;one&#60;/div&#62;&#10;&#9;&#60;div class=&#34;one&#34;&#62;two&#60;/div&#62;&#10;&#9;&#60;div class=&#34;one&#34;&#62;three&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用after伪类在box父元素内的最后添加一个子元素，每个dom元素都必须有display和content属性，所以要写上：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;&#10;&#9;&#9;&#9;display:block;&#10;&#9;&#9;&#9;content:&#34;&#34;;&#10;&#9;&#9;&#9;clear:both;&#10;&#9;&#9;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意display属性不可以写inline，因为inline撑不起父元素。<br>然后，ie6、7不支持伪类：after，所以我们在</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.clearfix&#123;&#10;&#9;*zoom:1;&#9;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>设置了zoom属性，使用来触发ie67的haslayout属性来支持：after伪类，haslayout是关于ie低版本浏览器排版的一个属性。</p>
+</blockquote>
+
       
     </div>
     <footer class="article-footer">
