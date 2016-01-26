@@ -3,17 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>js重复绑定事件 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://article.western-ranger.com/index.html">
+  <meta name="description" content="昨天被自己绑定click事件坑了一下子，学浅乃危险之事。如果读书多了就不会犯这样的错误了。        这样一个下拉框，点击“我选1”会生成一条“hello world！！！”，点“继续添加”则会继续添加。如果点击”我选2“也会像之前一样，首先把之前的记录清除掉，再生成一条，可以继续添加，一次生成一条”hello world！！！“
+代码如下：
+1var nodeArea = &amp;#39;&amp;#60">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js重复绑定事件">
+<meta property="og:url" content="http://article.western-ranger.com/2016/01/26/js重复绑定事件/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="昨天被自己绑定click事件坑了一下子，学浅乃危险之事。如果读书多了就不会犯这样的错误了。        这样一个下拉框，点击“我选1”会生成一条“hello world！！！”，点“继续添加”则会继续添加。如果点击”我选2“也会像之前一样，首先把之前的记录清除掉，再生成一条，可以继续添加，一次生成一条”hello world！！！“
+代码如下：
+1var nodeArea = &amp;#39;&amp;#60">
+<meta property="og:image" content="http://img.blog.csdn.net/20150715111453995">
+<meta property="og:image" content="http://img.blog.csdn.net/20150715111726739">
+<meta property="og:image" content="http://img.blog.csdn.net/20150715112340987">
+<meta property="og:image" content="http://img.blog.csdn.net/20150715112449220">
+<meta property="og:updated_time" content="2016-01-26T09:12:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="js重复绑定事件">
+<meta name="twitter:description" content="昨天被自己绑定click事件坑了一下子，学浅乃危险之事。如果读书多了就不会犯这样的错误了。        这样一个下拉框，点击“我选1”会生成一条“hello world！！！”，点“继续添加”则会继续添加。如果点击”我选2“也会像之前一样，首先把之前的记录清除掉，再生成一条，可以继续添加，一次生成一条”hello world！！！“
+代码如下：
+1var nodeArea = &amp;#39;&amp;#60">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +71,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-js重复绑定事件" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-js重复绑定事件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/26/js重复绑定事件/" class="article-date">
   <time datetime="2016-01-26T09:12:34.000Z" itemprop="datePublished">2016-01-26</time>
@@ -75,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/26/js重复绑定事件/">js重复绑定事件</a>
+    <h1 class="article-title" itemprop="name">
+      js重复绑定事件
     </h1>
   
 
@@ -102,65 +111,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-sass的安装使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/26/sass的安装使用/" class="article-date">
-  <time datetime="2016-01-26T09:09:43.000Z" itemprop="datePublished">2016-01-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/26/sass的安装使用/">sass的安装使用</a>
-    </h1>
+    <a href="/2016/01/26/sass的安装使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">sass的安装使用</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用scss来书写css还是很方便的。首先是ruby的下载与安装,下载地址是<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> 。下载完以后，我们打开安装文件，点击下一步安装即可，注意</p>
-<p><img src="http://img.blog.csdn.net/20150721145106215" alt="这里写图片描述"></p>
-<p>在这里下面打上勾，防止以后运行命令的时候找不到。<br>安装完成后，点击后打开。<br>运行命令 gem install sass </p>
-<p><img src="http://img.blog.csdn.net/20150721145217447" alt="这里写图片描述"></p>
-<p>然后等待安装完成，第一次安装可能会花费时间比较长，也有可能是被屏蔽了，多试几次<br>就可以。<br>下一步我们安装compass，运行命令 gem install compass</p>
-<p><img src="http://img.blog.csdn.net/20150721145357549" alt="这里写图片描述"></p>
-<p>然后也是等待安装。<br>安装完成后 运行 sass -v 和 compass -v。表明已经安装成功。<br>对于使用，比如你新建一个项目叫test在e盘下， 首先进入e盘的test里。</p>
-<p><img src="http://img.blog.csdn.net/20150721145559730" alt="这里写图片描述"></p>
-<p>然后我们在test中建一个文件夹用来存放css样式 ， 用命令compass create style</p>
-<p><img src="http://img.blog.csdn.net/20150721145645673" alt="这里写图片描述"></p>
-<p>点回车，会生成一大堆代码，style文件就建好了，<br>style文件夹里生成了这几个文件：</p>
-<p><img src="http://img.blog.csdn.net/20150721145802659" alt="这里写图片描述"></p>
-<p>然后接着上面的黑框输入如下内容</p>
-<p><img src="http://img.blog.csdn.net/20150721145919805" alt="这里写图片描述"></p>
-<p>表明监听成功，然后就可以在sass文件夹下的文件里写样式了（比如在ie.scss里）。</p>
-<p><img src="http://img.blog.csdn.net/20150721150015760" alt="这里写图片描述"></p>
-<p>引用样式还是引stylesheets文件夹下的css文件，比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;link style=&#34;stylesheet&#34; href=&#34;style/stylesheets/ie.css&#34;&#62;</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20150721150118596" alt="这里写图片描述"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://article.western-ranger.com/2016/01/26/sass的安装使用/" data-id="cijv6qhap00002pwxect0pntl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
