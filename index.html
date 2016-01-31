@@ -62,6 +62,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-git的基本用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/31/git的基本用法/" class="article-date">
+  <time datetime="2016-01-31T08:20:51.000Z" itemprop="datePublished">2016-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/31/git的基本用法/">git的基本用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前一直是用gitextension开发，图形化界面的好处就是简单易懂，现在可能我水平还不够，不能够说出他很多坏处，至于现在我开始放弃使用git的图形化界面完全是因为现在的公司，现在的工作开发仓库用git，所以平时也就联系一下使用git命令行呗。</p>
+<p>使用git命令好处还是有的。这练着练着就觉得git的命令行方式确实比较高端，首先看着高端，毕竟要记住好多命令嘛，装个逼。。哈哈。其次，用命令行基本不会出行卡机的现象，用过gitextension的都知道那个软件经常会卡。然后我记得第一次拉去git项目必须用命令行吧。用git extension拉取不下来。命令行的好处就体现出来了。最重要的是，如果你能把git的命令掌握的很熟练的话，操作起来肯定比用图形化界面快。</p>
+<p>经过这几天的摸索，现在总结学到的基本命令：</p>
+<ul>
+<li>克隆档案库： <code>git clone 【github上的那个https或者ssh地址】</code>;</li>
+<li>添加，新添加文件要提交，首先：<code>git add --all</code>;</li>
+<li>提交本地档案库，都加上之后再：<code>git commit -a</code>，如果没有新添加的文件，直接运行此命令;</li>
+<li>查看分支状态：<code>git status</code>，从这里可以看出那些文件没提交，哪些问价是新添加的;</li>
+<li>提交远程档案库，<code>git push</code>，这样，你就可以从另一台电脑上访问github查看你在别的电脑上提交的代码了；</li>
+<li>拉取代码：<code>git pull</code>；</li>
+<li>新建分支：<code>git branch 【分支名字】</code>;</li>
+<li>切换分支：<code>git checkout [分支名字]</code>，注意切换之前必须在本地提交代码;</li>
+<li>把分支加入远程端：<code>git remote add [远程服务器端名字，随便起一个名字][github上的那个https或者ssh地址]</code>；</li>
+<li>推送新分支到github上：<code>git push [远程服务器端名字][分支名字]</code>;</li>
+<li>查看最近操作记录：<code>git log</code>;</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://article.western-ranger.com/2016/01/31/git的基本用法/" data-id="cik2a3s6j0003ktwxyvl8vw40" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-清除浮动常用的方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/26/清除浮动常用的方法/" class="article-date">
@@ -120,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://article.western-ranger.com/2016/01/26/清除浮动常用的方法/" data-id="cijv6vabe00005gwxyz275cda" class="article-share-link">Share</a>
+      <a data-url="http://article.western-ranger.com/2016/01/26/清除浮动常用的方法/" data-id="cik2a3s650000ktwxxuf5jsqi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://article.western-ranger.com/2016/01/26/js重复绑定事件/" data-id="cijv6vabu00025gwxebpwo91i" class="article-share-link">Share</a>
+      <a data-url="http://article.western-ranger.com/2016/01/26/js重复绑定事件/" data-id="cik2a3s6h0002ktwxrjqft664" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://article.western-ranger.com/2016/01/26/sass的安装使用/" data-id="cijv6vabs00015gwxbj3pq3kx" class="article-share-link">Share</a>
+      <a data-url="http://article.western-ranger.com/2016/01/26/sass的安装使用/" data-id="cik2a3s6b0001ktwxpob72krv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -257,6 +310,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/01/31/git的基本用法/">git的基本用法</a>
+          </li>
         
           <li>
             <a href="/2016/01/26/清除浮动常用的方法/">清除浮动常用的方法</a>
