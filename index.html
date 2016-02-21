@@ -66,6 +66,102 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-清除浮动常用的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/21/清除浮动常用的方法/" class="article-date">
+  <time datetime="2016-02-21T10:44:01.000Z" itemprop="datePublished">2016-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/21/清除浮动常用的方法/">解决高度塌陷</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xp7rf.com1.z0.glb.clouddn.com/highBroken.png" alt=""></p>
+<p>如上图，给父元素设置边框不能把两个浮动的子元素包裹起来，俗称高度塌陷。解决高度塌陷最常用的方式就是－<em>清除浮动</em><br>使用清除浮动解决高度塌陷有这么几种方案：</p>
+<ul>
+<li><p>我们可以在box2后面再加一个box3，并把box3的clear属性设置为both;代码如下：</p>
+<pre><code>&lt;div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt; /*  box3  */
+&lt;/div&gt;
+</code></pre><p>  这种方式多加了一个div。我们也可以另一种方式去更优雅的实现它。</p>
+</li>
+<li><p>使用伪类：</p>
+<pre><code>&lt;style&gt;
+    .clearfix{
+        *zoom:1;
+    }
+    .clearfix:after{
+        content:&quot;&quot;;
+        display:block;
+        clear:both;
+    }
+&lt;/style&gt;
+&lt;div class=&quot;clearfix&quot;&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>  跟第一种方式原理一样，只不过是巧妙的利用了伪类。</p>
+<p>  需要注意的是：伪类里的display属性不可以写inline，因为inline撑不起父元素。<br>  然后，ie6、7不支持伪类：after，所以我们设置 “*zoom 为1” 来触发 ie6、7 的 haslayout 属性来支持    after伪类。（haslayout是关于ie低版本浏览器排版的一个属性）</p>
+</li>
+</ul>
+<p>我们还可以使用另一种神秘的方式去解决高度塌陷。总结了一下，分为四小类：</p>
+<ul>
+<li><p>设置父元素float不为none;</p>
+<pre><code>&lt;div style=&quot;float:left;&quot;&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></li>
+<li><p>设置父元素position为fixed或absolute；</p>
+<pre><code>&lt;div style=&quot;position:fixed;&quot;&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></li>
+<li><p>display为inline-block, table-cell, table-caption, flex, inline-flex;</p>
+<pre><code>&lt;div style=&quot;display:inline-block;&quot;&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></li>
+<li><p>overflow不为visible;</p>
+<pre><code>&lt;div style=&quot;overflow:hidden;&quot;&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>  其实自由最后一类对父元素的设置还算无毒无害，应用场景最多。</p>
+<p>  但是说了这么多，你知道为什么这四种方式可以解决父元素的高度塌陷吗？知道最好，如果不知道说明你已定不了    解BFC的概念，BFC（Block formatting context)直译为”块级格式化上下文”。它是一个只有Block-level     box参与独立的渲染区域。</p>
+<p>  BFC一个很重要的特性就是：<strong>计算BFC的高度时，浮动元素也参与计算。</strong> 利用这条特性，我们只要将父元素触发为    BFC就可以了。触发条件当然就是上述四条。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.western-ranger.com/2016/02/21/清除浮动常用的方法/" data-id="cikukbazc0000p5wxxqaqfkhm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript实现数组铺平" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/02/20/javascript实现数组铺平/" class="article-date">
@@ -284,74 +380,6 @@
 
 
   
-    <article id="post-清除浮动常用的方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/26/清除浮动常用的方法/" class="article-date">
-  <time datetime="2016-01-26T09:16:01.000Z" itemprop="datePublished">2016-01-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/26/清除浮动常用的方法/">清除浮动常用的方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先说不清除浮动的效果：<br><img src="http://img.blog.csdn.net/20150310172258314" alt="这里写图片描述"><br>给父元素这只边框都不会把他们包裹起来，俗称高度塌陷。</p>
-<p>然后说说几个不常用的清除浮动方法，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div style=&#34;overflow:hidden&#34;&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>就是给父元素设置overflow属性的那种，具体样式就不写了；<br>这个原理现在说一下。刚写这篇文章的时候并不知道给父元素设置overflow：hidden为什么可以防止高度塌陷。</p>
-<p>要说明白这个问题首先需要知道bfc是个什么鬼。具体参照<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="external">BFC神奇背后的原理</a><br>这里的原理就是：“overflow:hidden;“ 使父元素成为了一个bfc环境，bfc元素计算高度时，浮动元素也参与计算。</p>
-</blockquote>
-<p>还有这种：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div style=&#34;&#34;&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;clear:both&#34;&#62;&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这种的是在浮动元素最后加一个空的div然后给他清楚浮动，这个原理就是让它左右两边都不挨着浮动元素，所以他就钻到父元素的最下边了，但是还是在父元素内，所以就把父元素给撑起来了。不会塌陷。效果如下：</p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20150310172507982" alt="正常状态"></p>
-<p>还有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div style=&#34;float:left;&#34;&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#9;&#60;div style=&#34;float:left;&#34;&#62;&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>给父元素也加浮动，这种方式是极不好的，会影响父元素的定位</p>
-</blockquote>
-<p>还有一种极不好的，是给设置父元素的display属性为table。这个table属性的元素布局的时候坑太多了，所以这种清除浮动的方式是极不推荐的。</p>
-<p>最后被大家所广泛采用的一种方式是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;style&#62;&#10;&#9;.box&#123;&#10;&#9;&#9;width:400px;&#10;&#9;&#9;border:red solid 1px;&#10;&#9;&#125;&#10;&#9;.clearfix&#123;&#10;&#9;&#9;*zoom:1;&#9;&#10;&#9;&#125;&#10;&#9;.clearfix:after&#123;&#10;&#9;&#9;display:block;&#10;&#9;&#9;content:&#34;&#34;;&#10;&#9;&#9;clear:both;&#10;&#9;&#125;&#10;&#9;.one&#123;&#10;&#9;&#9;width:100px;&#10;&#9;&#9;height:100px;&#10;&#9;&#9;background-color:yellow;&#10;&#9;&#9;margin:5px;&#10;&#9;&#9;float:left;&#10;&#9;&#125;&#10;&#60;/style&#62;&#10;&#60;div class=&#34;box clearfix&#34;&#62;&#10;&#9;&#60;div class=&#34;one&#34;&#62;one&#60;/div&#62;&#10;&#9;&#60;div class=&#34;one&#34;&#62;two&#60;/div&#62;&#10;&#9;&#60;div class=&#34;one&#34;&#62;three&#60;/div&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>用after伪类在box父元素内的最后添加一个子元素，每个dom元素都必须有display和content属性，所以要写上：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;&#10;&#9;&#9;&#9;display:block;&#10;&#9;&#9;&#9;content:&#34;&#34;;&#10;&#9;&#9;&#9;clear:both;&#10;&#9;&#9;&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意display属性不可以写inline，因为inline撑不起父元素。<br>然后，ie6、7不支持伪类：after，所以我们在</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.clearfix&#123;&#10;&#9;*zoom:1;&#9;&#10;&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>设置了zoom属性，使用来触发ie67的haslayout属性来支持：after伪类，haslayout是关于ie低版本浏览器排版的一个属性。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.western-ranger.com/2016/01/26/清除浮动常用的方法/" data-id="cikukbazc0000p5wxxqaqfkhm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-js重复绑定事件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/26/js重复绑定事件/" class="article-date">
@@ -481,6 +509,10 @@
       <ul>
         
           <li>
+            <a href="/2016/02/21/清除浮动常用的方法/">解决高度塌陷</a>
+          </li>
+        
+          <li>
             <a href="/2016/02/20/javascript实现数组铺平/">javascript实现数组铺平</a>
           </li>
         
@@ -490,10 +522,6 @@
         
           <li>
             <a href="/2016/01/31/git的基本用法/">git的基本用法</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/26/清除浮动常用的方法/">清除浮动常用的方法</a>
           </li>
         
           <li>
