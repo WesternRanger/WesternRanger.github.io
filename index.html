@@ -66,9 +66,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-清除浮动常用的方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-解决高度塌陷" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/02/21/清除浮动常用的方法/" class="article-date">
+    <a href="/2016/02/21/解决高度塌陷/" class="article-date">
   <time datetime="2016-02-21T10:44:01.000Z" itemprop="datePublished">2016-02-21</time>
 </a>
     
@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/21/清除浮动常用的方法/">解决高度塌陷</a>
+      <a class="article-title" href="/2016/02/21/解决高度塌陷/">解决高度塌陷</a>
     </h1>
   
 
@@ -115,7 +115,7 @@
     &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre><p>  跟第一种方式原理一样，只不过是巧妙的利用了伪类。</p>
-<p>  需要注意的是：伪类里的display属性不可以写inline，因为inline撑不起父元素。<br>  然后，ie6、7不支持伪类：after，所以我们设置 “*zoom 为1” 来触发 ie6、7 的 haslayout 属性来支持    after伪类。（haslayout是关于ie低版本浏览器排版的一个属性）</p>
+<p>  需要注意的是：伪类里的display属性不可以写inline，因为inline撑不起父元素。<br>  然后，ie6、7、8不支持伪类：after，所以我们设置 “*zoom:1” 来触发 ie6、7 的 haslayout 属性.（haslayout是关于ie低版本浏览器排版的一个属性,类似高级浏览器的BFC属性.）</p>
 </li>
 </ul>
 <p>我们还可以使用另一种神秘的方式去解决高度塌陷。总结了一下，分为四小类：</p>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.western-ranger.com/2016/02/21/清除浮动常用的方法/" data-id="cikukbazc0000p5wxxqaqfkhm" class="article-share-link">Share</a>
+      <a data-url="http://blog.western-ranger.com/2016/02/21/解决高度塌陷/" data-id="cil4jalyb00001gwxzxxu6n1n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -509,7 +509,7 @@
       <ul>
         
           <li>
-            <a href="/2016/02/21/清除浮动常用的方法/">解决高度塌陷</a>
+            <a href="/2016/02/21/解决高度塌陷/">解决高度塌陷</a>
           </li>
         
           <li>
