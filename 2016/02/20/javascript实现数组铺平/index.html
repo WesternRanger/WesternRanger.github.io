@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.western-ranger.com">
-  <title>javascript实现数组铺平 | 西泊浪人博客列表</title>
+  <title>javascript实现数组铺平 | 西泊浪人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="首先解释一下“铺平”，比如一个数组：[1,[7,3],4]，他的第二个元素还是一个数组，我们需要把它提取出来，最后应该是这样[1,7,3,4]，这就是铺平。
 思路很简单，遍历数组，每个元素判断是否为数组元素，不是的话就push到一个新数组，是的话就遍历当前数组元素，不是数组元素的继续push… 这样周而复始的递归调用。听糊涂了吧。直接上代码吧。一个待铺平的数组
@@ -14,7 +14,7 @@ var arr = [1,[[2,3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript实现数组铺平">
 <meta property="og:url" content="http://blog.western-ranger.com/2016/02/20/javascript实现数组铺平/index.html">
-<meta property="og:site_name" content="西泊浪人博客列表">
+<meta property="og:site_name" content="西泊浪人">
 <meta property="og:description" content="首先解释一下“铺平”，比如一个数组：[1,[7,3],4]，他的第二个元素还是一个数组，我们需要把它提取出来，最后应该是这样[1,7,3,4]，这就是铺平。
 思路很简单，遍历数组，每个元素判断是否为数组元素，不是的话就push到一个新数组，是的话就遍历当前数组元素，不是数组元素的继续push… 这样周而复始的递归调用。听糊涂了吧。直接上代码吧。一个待铺平的数组
 var arr = [1,[[2,3">
@@ -25,7 +25,7 @@ var arr = [1,[[2,3">
 思路很简单，遍历数组，每个元素判断是否为数组元素，不是的话就push到一个新数组，是的话就遍历当前数组元素，不是数组元素的继续push… 这样周而复始的递归调用。听糊涂了吧。直接上代码吧。一个待铺平的数组
 var arr = [1,[[2,3">
   
-    <link rel="alternative" href="/atom.xml" title="西泊浪人博客列表" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
