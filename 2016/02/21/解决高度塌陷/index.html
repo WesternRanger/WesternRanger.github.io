@@ -25,7 +25,7 @@
     &amp;lt;div style=&amp;quot;float:left;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
     &amp;">
 <meta property="og:image" content="http://7xp7rf.com1.z0.glb.clouddn.com/highBroken.png">
-<meta property="og:updated_time" content="2016-12-25T13:16:53.000Z">
+<meta property="og:updated_time" content="2016-12-25T13:20:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决高度塌陷">
 <meta name="twitter:description" content="如上图，给父元素设置边框不能把两个浮动的子元素包裹起来，俗称高度塌陷。解决高度塌陷最常用的方式就是－清除浮动使用清除浮动解决高度塌陷有这么几种方案：
@@ -182,7 +182,7 @@
 <li><p>使用伪类：</p>
 <pre><code>&lt;style&gt;
     .clearfix{
-        *zoom:1;
+        `*zoom:1;`
     }
     .clearfix:after{
         content:&quot;&quot;;
@@ -195,7 +195,7 @@
     &lt;div style=&quot;float:left;&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre><p>  跟第一种方式原理一样，只不过是巧妙的利用了伪类。</p>
-<p>  需要注意的是：伪类里的display属性不可以写inline，因为inline撑不起父元素。<br>  然后，ie6、7、8不支持伪类：after，所以我们设置 “*zoom:1” 来触发 ie6、7 的 haslayout 属性.（haslayout是关于ie低版本浏览器排版的一个属性,类似高级浏览器的BFC属性.）</p>
+<p>  需要注意的是：伪类里的display属性不可以写inline，因为inline撑不起父元素。<br>  然后，ie6、7、8不支持伪类：after，所以我们设置 <code>*zoom:1</code> 来触发 ie6、7 的 haslayout 属性.（haslayout是关于ie低版本浏览器排版的一个属性,类似高级浏览器的BFC属性.）</p>
 </li>
 </ul>
 <p>我们还可以使用另一种神秘的方式去解决高度塌陷。总结了一下，分为四小类：</p>
