@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.western-ranger.com">
-  <title>zepto中$.attr 和 $.data 的区别 | 西泊浪人</title>
+  <title>卸磨杀驴-换了vscode吐槽atom | 西泊浪人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。抽出时间来深刻的剖析一下zepto的源码实现。
-原文链接">
+  <meta name="description" content="前一段时间一直夸赞atom多么好用，并亲切的称之为‘阿童木’。还是逃不过喜新厌旧的历史规律（什么狗屁历史规律）atom足够优秀，但是插件数量达到一定数量后打字都会卡。而且在我体验atom的4个月的时间里。也发现了一些小问题。我之前特别抵触vscode，可能是微软产品的缘故吧。。。机缘巧合，17年大年初二走完亲戚后浏览掘金稀土发现了一片软文为什么我从 Sublime Text 跳槽 Visual S">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zepto中$.attr 和 $.data 的区别">
-<meta property="og:url" content="http://blog.western-ranger.com/2017/01/04/zepto中attr和data的区别/index.html">
+<meta property="og:title" content="卸磨杀驴-换了vscode吐槽atom">
+<meta property="og:url" content="http://blog.western-ranger.com/2017/02/03/卸磨杀驴-换了vscode吐槽atom/index.html">
 <meta property="og:site_name" content="西泊浪人">
-<meta property="og:description" content="今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。抽出时间来深刻的剖析一下zepto的源码实现。
-原文链接">
-<meta property="og:updated_time" content="2017-01-04T15:42:48.000Z">
+<meta property="og:description" content="前一段时间一直夸赞atom多么好用，并亲切的称之为‘阿童木’。还是逃不过喜新厌旧的历史规律（什么狗屁历史规律）atom足够优秀，但是插件数量达到一定数量后打字都会卡。而且在我体验atom的4个月的时间里。也发现了一些小问题。我之前特别抵触vscode，可能是微软产品的缘故吧。。。机缘巧合，17年大年初二走完亲戚后浏览掘金稀土发现了一片软文为什么我从 Sublime Text 跳槽 Visual S">
+<meta property="og:updated_time" content="2017-02-03T08:51:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zepto中$.attr 和 $.data 的区别">
-<meta name="twitter:description" content="今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。抽出时间来深刻的剖析一下zepto的源码实现。
-原文链接">
+<meta name="twitter:title" content="卸磨杀驴-换了vscode吐槽atom">
+<meta name="twitter:description" content="前一段时间一直夸赞atom多么好用，并亲切的称之为‘阿童木’。还是逃不过喜新厌旧的历史规律（什么狗屁历史规律）atom足够优秀，但是插件数量达到一定数量后打字都会卡。而且在我体验atom的4个月的时间里。也发现了一些小问题。我之前特别抵触vscode，可能是微软产品的缘故吧。。。机缘巧合，17年大年初二走完亲戚后浏览掘金稀土发现了一片软文为什么我从 Sublime Text 跳槽 Visual S">
   
     <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
   
@@ -136,26 +133,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-zepto中attr和data的区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-卸磨杀驴-换了vscode吐槽atom" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      zepto中$.attr 和 $.data 的区别
+      卸磨杀驴-换了vscode吐槽atom
     </h1>
   
 
-        <a href="/2017/01/04/zepto中attr和data的区别/" class="archive-article-date">
-  	<time datetime="2017-01-04T15:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-04</time>
+        <a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" class="archive-article-date">
+  	<time datetime="2017-02-03T08:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。<br>抽出时间来深刻的剖析一下zepto的源码实现。</p>
-<p><a href="https://github.com/WesternRanger/workdiary/blob/master/zepto%E4%B8%AD%24.attr%20%E5%92%8C%20%24.data%20%E7%9A%84%E5%8C%BA%E5%88%AB.md" target="_blank" rel="external">原文链接</a></p>
+        <p>前一段时间一直夸赞atom多么好用，并亲切的称之为‘阿童木’。还是逃不过喜新厌旧的历史规律（什么狗屁历史规律）<br>atom足够优秀，但是插件数量达到一定数量后打字都会卡。而且在我体验atom的4个月的时间里。也发现了一些小问题。<br>我之前特别抵触vscode，可能是微软产品的缘故吧。。。机缘巧合，17年大年初二走完亲戚后浏览<a href="https://gold.xitu.io/" target="_blank" rel="external">掘金稀土</a>发现了一片软文<a href="https://hungys.xyz/why-i-switched-from-sublime-to-vscode/" target="_blank" rel="external">为什么我从 Sublime Text 跳槽 Visual Studio Code？ </a>才让我放下对微软的成见并意识到我该换个IDE使使了。</p>
+<p>新年上班第一天，各位新年快乐啊。吐槽atom、属予作文以记之。<a href="https://github.com/WesternRanger/workdiary/blob/master/vscode%20%E5%AF%B9%E6%AF%94%20atom%20%E4%BC%98%E7%BC%BA%E7%82%B9.md" target="_blank" rel="external">由此进入正文</a>。</p>
 
       
 
@@ -245,7 +242,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/01/04/zepto中attr和data的区别/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,18 +256,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          卸磨杀驴-换了vscode吐槽atom
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/25/react-native学习日记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react-native学习日记</div>
+    <a href="/2017/01/04/zepto中attr和data的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">zepto中$.attr 和 $.data 的区别</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -283,7 +271,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="zepto中attr和data的区别" data-title="zepto中$.attr 和 $.data 的区别" data-url="http://blog.western-ranger.com/2017/01/04/zepto中attr和data的区别/"></div>
+	<div class="ds-thread" data-thread-key="卸磨杀驴-换了vscode吐槽atom" data-title="卸磨杀驴-换了vscode吐槽atom" data-url="http://blog.western-ranger.com/2017/02/03/卸磨杀驴-换了vscode吐槽atom/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

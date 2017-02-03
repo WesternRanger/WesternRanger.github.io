@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.western-ranger.com">
-  <title>zepto中$.attr 和 $.data 的区别 | 西泊浪人</title>
+  <title>Archives: 2017/2 | 西泊浪人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。抽出时间来深刻的剖析一下zepto的源码实现。
-原文链接">
-<meta property="og:type" content="article">
-<meta property="og:title" content="zepto中$.attr 和 $.data 的区别">
-<meta property="og:url" content="http://blog.western-ranger.com/2017/01/04/zepto中attr和data的区别/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="西泊浪人">
+<meta property="og:url" content="http://blog.western-ranger.com/archives/2017/02/index.html">
 <meta property="og:site_name" content="西泊浪人">
-<meta property="og:description" content="今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。抽出时间来深刻的剖析一下zepto的源码实现。
-原文链接">
-<meta property="og:updated_time" content="2017-01-04T15:42:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zepto中$.attr 和 $.data 的区别">
-<meta name="twitter:description" content="今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。抽出时间来深刻的剖析一下zepto的源码实现。
-原文链接">
+<meta name="twitter:title" content="西泊浪人">
   
     <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
   
@@ -136,172 +129,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-zepto中attr和data的区别" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      zepto中$.attr 和 $.data 的区别
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" class="archive-article-date">
+  	<time datetime="2017-02-03T08:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/">卸磨杀驴-换了vscode吐槽atom</a>
     </h1>
   
 
-        <a href="/2017/01/04/zepto中attr和data的区别/" class="archive-article-date">
-  	<time datetime="2017-01-04T15:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-04</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天遇到的一个问题，是zepto中关于$el.attr(‘data-id’) 和 $el.data(‘id’)取到的数据类型问题。<br>抽出时间来深刻的剖析一下zepto的源码实现。</p>
-<p><a href="https://github.com/WesternRanger/workdiary/blob/master/zepto%E4%B8%AD%24.attr%20%E5%92%8C%20%24.data%20%E7%9A%84%E5%8C%BA%E5%88%AB.md" target="_blank" rel="external">原文链接</a></p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://o8k8bw35y.bkt.clouddn.com/WechatIMG4.jpeg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://o8k8bw35y.bkt.clouddn.com/WechatIMG5.jpeg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/01/04/zepto中attr和data的区别/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          卸磨杀驴-换了vscode吐槽atom
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/12/25/react-native学习日记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react-native学习日记</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="zepto中attr和data的区别" data-title="zepto中$.attr 和 $.data 的区别" data-url="http://blog.western-ranger.com/2017/01/04/zepto中attr和data的区别/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 
           </div>
@@ -324,8 +194,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
