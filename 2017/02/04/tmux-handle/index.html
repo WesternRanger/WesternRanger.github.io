@@ -6,14 +6,99 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.western-ranger.com">
-  <title>Archives: 2017/2 | 西泊浪人</title>
+  <title>tmux handle | 西泊浪人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="西泊浪人">
-<meta property="og:url" content="http://blog.western-ranger.com/archives/2017/02/index.html">
+  <meta name="description" content="tmux 操作基本操作：
+
+
+
+?
+列出所有快捷键；按q返回
+
+
+
+
+d
+脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话
+
+
+s
+选择并切换会话；在同时开启了多个会话时使用
+
+
+D
+选择要脱离的会话；在同时开启了多个会话时使用
+
+
+:
+进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话
+
+
+[
+复制模式，光标移动到复制内容位置，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tmux handle">
+<meta property="og:url" content="http://blog.western-ranger.com/2017/02/04/tmux-handle/index.html">
 <meta property="og:site_name" content="西泊浪人">
+<meta property="og:description" content="tmux 操作基本操作：
+
+
+
+?
+列出所有快捷键；按q返回
+
+
+
+
+d
+脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话
+
+
+s
+选择并切换会话；在同时开启了多个会话时使用
+
+
+D
+选择要脱离的会话；在同时开启了多个会话时使用
+
+
+:
+进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话
+
+
+[
+复制模式，光标移动到复制内容位置，">
+<meta property="og:updated_time" content="2017-02-04T02:00:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="西泊浪人">
+<meta name="twitter:title" content="tmux handle">
+<meta name="twitter:description" content="tmux 操作基本操作：
+
+
+
+?
+列出所有快捷键；按q返回
+
+
+
+
+d
+脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话
+
+
+s
+选择并切换会话；在同时开启了多个会话时使用
+
+
+D
+选择要脱离的会话；在同时开启了多个会话时使用
+
+
+:
+进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话
+
+
+[
+复制模式，光标移动到复制内容位置，">
   
     <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
   
@@ -129,76 +214,321 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-tmux-handle" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      tmux handle
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/tmux-handle/" class="archive-article-date">
+
+        <a href="/2017/02/04/tmux-handle/" class="archive-article-date">
   	<time datetime="2017-02-04T01:59:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/tmux-handle/">tmux handle</a>
-    </h1>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="tmux__u64CD_u4F5C"><a href="#tmux__u64CD_u4F5C" class="headerlink" title="tmux 操作"></a>tmux 操作</h1><p>基本操作：</p>
+<table>
+<thead>
+<tr>
+<th>?</th>
+<th>列出所有快捷键；按q返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d</td>
+<td>脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话</td>
+</tr>
+<tr>
+<td>s</td>
+<td>选择并切换会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td>D</td>
+<td>选择要脱离的会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td>:</td>
+<td>进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话</td>
+</tr>
+<tr>
+<td>[</td>
+<td>复制模式，光标移动到复制内容位置，空格键开始，方向键选择复制，回车确认，q/Esc退出</td>
+</tr>
+<tr>
+<td>]</td>
+<td>进入粘贴模式，粘贴之前复制的内容，按q/Esc退出</td>
+</tr>
+<tr>
+<td>~</td>
+<td>列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</td>
+</tr>
+<tr>
+<td>t</td>
+<td>显示当前的时间</td>
+</tr>
+<tr>
+<td>Ctrl+z</td>
+<td>挂起当前会话</td>
+</tr>
+</tbody>
+</table>
+<p>窗口操作:</p>
+<table>
+<thead>
+<tr>
+<th>c</th>
+<th>创建新窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td>数字键</td>
+<td>切换到指定窗口</td>
+</tr>
+<tr>
+<td>p</td>
+<td>切换至上一窗口</td>
+</tr>
+<tr>
+<td>n</td>
+<td>切换至下一窗口</td>
+</tr>
+<tr>
+<td>l</td>
+<td>前后窗口间互相切换</td>
+</tr>
+<tr>
+<td>w</td>
+<td>通过窗口列表切换窗口</td>
+</tr>
+<tr>
+<td>,</td>
+<td>重命名当前窗口，便于识别</td>
+</tr>
+<tr>
+<td>.</td>
+<td>修改当前窗口编号，相当于重新排序</td>
+</tr>
+<tr>
+<td>f</td>
+<td>在所有窗口中查找关键词，便于窗口多了切换</td>
+</tr>
+</tbody>
+</table>
+<p>面板操作:</p>
+<table>
+<thead>
+<tr>
+<th>“</th>
+<th>将当前面板上下分屏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>将当前面板左右分屏</td>
+</tr>
+<tr>
+<td>x</td>
+<td>关闭当前分屏</td>
+</tr>
+<tr>
+<td>!</td>
+<td>将当前面板置于新窗口,即新建一个窗口,其中仅包含当前面板</td>
+</tr>
+<tr>
+<td>Ctrl+方向键</td>
+<td>以1个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td>Alt+方向键</td>
+<td>以5个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td>空格键</td>
+<td>可以在默认面板布局中切换，试试就知道了</td>
+</tr>
+<tr>
+<td>q</td>
+<td>显示面板编号</td>
+</tr>
+<tr>
+<td>o</td>
+<td>选择当前窗口中下一个面板</td>
+</tr>
+<tr>
+<td>方向键</td>
+<td>移动光标选择对应面板</td>
+</tr>
+<tr>
+<td>{</td>
+<td>向前置换当前面板</td>
+</tr>
+<tr>
+<td>}</td>
+<td>向后置换当前面板</td>
+</tr>
+<tr>
+<td>Alt+o</td>
+<td>逆时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td>Ctrl+o</td>
+<td>顺时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td>z</td>
+</tr>
+</tbody>
+</table>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://o8k8bw35y.bkt.clouddn.com/WechatIMG4.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://o8k8bw35y.bkt.clouddn.com/WechatIMG5.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/02/04/tmux-handle/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" class="archive-article-date">
-  	<time datetime="2017-02-03T08:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/">卸磨杀驴-换了vscode吐槽atom</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">卸磨杀驴-换了vscode吐槽atom</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="tmux-handle" data-title="tmux handle" data-url="http://blog.western-ranger.com/2017/02/04/tmux-handle/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 
           </div>
@@ -221,8 +551,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

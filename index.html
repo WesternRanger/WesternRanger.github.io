@@ -131,6 +131,214 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tmux-handle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/tmux-handle/">tmux handle</a>
+    </h1>
+  
+
+        <a href="/2017/02/04/tmux-handle/" class="archive-article-date">
+  	<time datetime="2017-02-04T01:59:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="tmux__u64CD_u4F5C"><a href="#tmux__u64CD_u4F5C" class="headerlink" title="tmux 操作"></a>tmux 操作</h1><p>基本操作：</p>
+<table>
+<thead>
+<tr>
+<th>?</th>
+<th>列出所有快捷键；按q返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d</td>
+<td>脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话</td>
+</tr>
+<tr>
+<td>s</td>
+<td>选择并切换会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td>D</td>
+<td>选择要脱离的会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td>:</td>
+<td>进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话</td>
+</tr>
+<tr>
+<td>[</td>
+<td>复制模式，光标移动到复制内容位置，空格键开始，方向键选择复制，回车确认，q/Esc退出</td>
+</tr>
+<tr>
+<td>]</td>
+<td>进入粘贴模式，粘贴之前复制的内容，按q/Esc退出</td>
+</tr>
+<tr>
+<td>~</td>
+<td>列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</td>
+</tr>
+<tr>
+<td>t</td>
+<td>显示当前的时间</td>
+</tr>
+<tr>
+<td>Ctrl+z</td>
+<td>挂起当前会话</td>
+</tr>
+</tbody>
+</table>
+<p>窗口操作:</p>
+<table>
+<thead>
+<tr>
+<th>c</th>
+<th>创建新窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td>数字键</td>
+<td>切换到指定窗口</td>
+</tr>
+<tr>
+<td>p</td>
+<td>切换至上一窗口</td>
+</tr>
+<tr>
+<td>n</td>
+<td>切换至下一窗口</td>
+</tr>
+<tr>
+<td>l</td>
+<td>前后窗口间互相切换</td>
+</tr>
+<tr>
+<td>w</td>
+<td>通过窗口列表切换窗口</td>
+</tr>
+<tr>
+<td>,</td>
+<td>重命名当前窗口，便于识别</td>
+</tr>
+<tr>
+<td>.</td>
+<td>修改当前窗口编号，相当于重新排序</td>
+</tr>
+<tr>
+<td>f</td>
+<td>在所有窗口中查找关键词，便于窗口多了切换</td>
+</tr>
+</tbody>
+</table>
+<p>面板操作:</p>
+<table>
+<thead>
+<tr>
+<th>“</th>
+<th>将当前面板上下分屏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>将当前面板左右分屏</td>
+</tr>
+<tr>
+<td>x</td>
+<td>关闭当前分屏</td>
+</tr>
+<tr>
+<td>!</td>
+<td>将当前面板置于新窗口,即新建一个窗口,其中仅包含当前面板</td>
+</tr>
+<tr>
+<td>Ctrl+方向键</td>
+<td>以1个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td>Alt+方向键</td>
+<td>以5个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td>空格键</td>
+<td>可以在默认面板布局中切换，试试就知道了</td>
+</tr>
+<tr>
+<td>q</td>
+<td>显示面板编号</td>
+</tr>
+<tr>
+<td>o</td>
+<td>选择当前窗口中下一个面板</td>
+</tr>
+<tr>
+<td>方向键</td>
+<td>移动光标选择对应面板</td>
+</tr>
+<tr>
+<td>{</td>
+<td>向前置换当前面板</td>
+</tr>
+<tr>
+<td>}</td>
+<td>向后置换当前面板</td>
+</tr>
+<tr>
+<td>Alt+o</td>
+<td>逆时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td>Ctrl+o</td>
+<td>顺时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td>z</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/04/tmux-handle/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-卸磨杀驴-换了vscode吐槽atom" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -828,73 +1036,10 @@
 
 
   
-    <article id="post-sass的安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/26/sass的安装使用/">sass的安装使用</a>
-    </h1>
-  
-
-        <a href="/2016/01/26/sass的安装使用/" class="archive-article-date">
-  	<time datetime="2016-01-26T09:09:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用scss来书写css还是很方便的。首先是ruby的下载与安装,下载地址是<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> 。下载完以后，我们打开安装文件，点击下一步安装即可，注意</p>
-<p><img src="http://img.blog.csdn.net/20150721145106215" alt="这里写图片描述"></p>
-<p>在这里下面打上勾，防止以后运行命令的时候找不到。<br>安装完成后，点击后打开。<br>运行命令 gem install sass </p>
-<p><img src="http://img.blog.csdn.net/20150721145217447" alt="这里写图片描述"></p>
-<p>然后等待安装完成，第一次安装可能会花费时间比较长，也有可能是被屏蔽了，多试几次<br>就可以。<br>下一步我们安装compass，运行命令 gem install compass</p>
-<p><img src="http://img.blog.csdn.net/20150721145357549" alt="这里写图片描述"></p>
-<p>然后也是等待安装。<br>安装完成后 运行 sass -v 和 compass -v。表明已经安装成功。<br>对于使用，比如你新建一个项目叫test在e盘下， 首先进入e盘的test里。</p>
-<p><img src="http://img.blog.csdn.net/20150721145559730" alt="这里写图片描述"></p>
-<p>然后我们在test中建一个文件夹用来存放css样式 ， 用命令compass create style</p>
-<p><img src="http://img.blog.csdn.net/20150721145645673" alt="这里写图片描述"></p>
-<p>点回车，会生成一大堆代码，style文件就建好了，<br>style文件夹里生成了这几个文件：</p>
-<p><img src="http://img.blog.csdn.net/20150721145802659" alt="这里写图片描述"></p>
-<p>然后接着上面的黑框输入如下内容</p>
-<p><img src="http://img.blog.csdn.net/20150721145919805" alt="这里写图片描述"></p>
-<p>表明监听成功，然后就可以在sass文件夹下的文件里写样式了（比如在ie.scss里）。</p>
-<p><img src="http://img.blog.csdn.net/20150721150015760" alt="这里写图片描述"></p>
-<p>引用样式还是引stylesheets文件夹下的css文件，比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link style=&quot;stylesheet&quot; href=&quot;style/stylesheets/ie.css&quot;&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20150721150118596" alt="这里写图片描述"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/26/sass的安装使用/#more">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

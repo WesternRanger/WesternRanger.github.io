@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.western-ranger.com">
-  <title>Archives: 2017/2 | 西泊浪人</title>
+  <title>西泊浪人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="西泊浪人">
-<meta property="og:url" content="http://blog.western-ranger.com/archives/2017/02/index.html">
+<meta property="og:url" content="http://blog.western-ranger.com/page/2/index.html">
 <meta property="og:site_name" content="西泊浪人">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="西泊浪人">
@@ -131,74 +131,78 @@
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-sass的安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/tmux-handle/" class="archive-article-date">
-  	<time datetime="2017-02-04T01:59:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/tmux-handle/">tmux handle</a>
+      <a class="article-title" href="/2016/01/26/sass的安装使用/">sass的安装使用</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/" class="archive-article-date">
-  	<time datetime="2017-02-03T08:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
+        <a href="/2016/01/26/sass的安装使用/" class="archive-article-date">
+  	<time datetime="2016-01-26T09:09:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/卸磨杀驴-换了vscode吐槽atom/">卸磨杀驴-换了vscode吐槽atom</a>
-    </h1>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用scss来书写css还是很方便的。首先是ruby的下载与安装,下载地址是<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> 。下载完以后，我们打开安装文件，点击下一步安装即可，注意</p>
+<p><img src="http://img.blog.csdn.net/20150721145106215" alt="这里写图片描述"></p>
+<p>在这里下面打上勾，防止以后运行命令的时候找不到。<br>安装完成后，点击后打开。<br>运行命令 gem install sass </p>
+<p><img src="http://img.blog.csdn.net/20150721145217447" alt="这里写图片描述"></p>
+<p>然后等待安装完成，第一次安装可能会花费时间比较长，也有可能是被屏蔽了，多试几次<br>就可以。<br>下一步我们安装compass，运行命令 gem install compass</p>
+<p><img src="http://img.blog.csdn.net/20150721145357549" alt="这里写图片描述"></p>
+<p>然后也是等待安装。<br>安装完成后 运行 sass -v 和 compass -v。表明已经安装成功。<br>对于使用，比如你新建一个项目叫test在e盘下， 首先进入e盘的test里。</p>
+<p><img src="http://img.blog.csdn.net/20150721145559730" alt="这里写图片描述"></p>
+<p>然后我们在test中建一个文件夹用来存放css样式 ， 用命令compass create style</p>
+<p><img src="http://img.blog.csdn.net/20150721145645673" alt="这里写图片描述"></p>
+<p>点回车，会生成一大堆代码，style文件就建好了，<br>style文件夹里生成了这几个文件：</p>
+<p><img src="http://img.blog.csdn.net/20150721145802659" alt="这里写图片描述"></p>
+<p>然后接着上面的黑框输入如下内容</p>
+<p><img src="http://img.blog.csdn.net/20150721145919805" alt="这里写图片描述"></p>
+<p>表明监听成功，然后就可以在sass文件夹下的文件里写样式了（比如在ie.scss里）。</p>
+<p><img src="http://img.blog.csdn.net/20150721150015760" alt="这里写图片描述"></p>
+<p>引用样式还是引stylesheets文件夹下的css文件，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link style=&quot;stylesheet&quot; href=&quot;style/stylesheets/ie.css&quot;&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20150721150118596" alt="这里写图片描述"></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/26/sass的安装使用/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -220,9 +224,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
