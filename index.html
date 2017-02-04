@@ -131,6 +131,155 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-正则表达式总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/正则表达式总结/">正则表达式总结</a>
+    </h1>
+  
+
+        <a href="/2017/02/04/正则表达式总结/" class="archive-article-date">
+  	<time datetime="2017-02-04T02:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u6B63_u5219_u8868_u8FBE_u5F0F"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="u521B_u5EFA_u4E00_u4E2A_u6B63_u5219_u8868_u8FBE_u5F0F"><a href="#u521B_u5EFA_u4E00_u4E2A_u6B63_u5219_u8868_u8FBE_u5F0F" class="headerlink" title="创建一个正则表达式"></a>创建一个正则表达式</h2><p>你可以通过下面两种方法创建一个正则表达式：</p>
+<p>使用一个正则表达式字面量，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = /ab+c/;</div></pre></td></tr></table></figure>
+<p>正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。</p>
+<p>调用<code>RegExp</code>对象的构造函数，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = new RegExp(&quot;ab+c&quot;);</div></pre></td></tr></table></figure>
+<p>使用构造函数，提供了对正则表达式运行时的编译。当你知道正则表达式的模式会发生改变， 或者你事先并不了解它的模式或者是从其他地方（比如用户的输入），得到的代码这时比较适合用构造函数的方式。</p>
+<h4 id="u6B63_u5219_u8868_u8FBE_u5F0F_u652F_u6301_u7684_u5B57_u7B26_u8F6C_u4E49"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F_u652F_u6301_u7684_u5B57_u7B26_u8F6C_u4E49" class="headerlink" title="正则表达式支持的字符转义"></a>正则表达式支持的字符转义</h4><table>
+<thead>
+<tr>
+<th>字符或序列</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>除以下字符外的所有字符：。 $ ^ { [ ( \</td>
+<td>) * + ? \</td>
+<td>“字符或序列”列中未包含的字符在正则表达式中没有特殊含义；此类字符与自身匹配。“字符或序列”列中包括的字符均为特殊的正则表达式语言元素。 若要在正则表达式中匹配这些字符，必须将其转义或纳入 <a href="https://msdn.microsoft.com/zh-cn/library/20bw873z(v=vs.110" target="_blank" rel="external">ppositive 字符组</a>.aspx)。 例如，正则表达式 <code>\$\d+</code> 或 <code>[$]\d+</code> 匹配“$1200”。</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>匹配响铃（警报）字符，<code>\u0007</code>。</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>在 <code>[</code><em>character_group</em><code>]</code> 字符类中，匹配退格，<code>\u0008</code>。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/20bw873z(v=vs.110" target="_blank" rel="external">字符类</a>.aspx)。） 在字符类之外，<code>\b</code> 是匹配字边界的定位点。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/h5181w5w(v=vs.110" target="_blank" rel="external">定位点</a>.aspx)。）</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>匹配制表符，<code>\u0009</code>。</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>匹配回车，<code>\u000D</code>。 请注意，<code>\r</code> 不等同于换行符，<code>\n</code>。</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>匹配垂直制表符，<code>\u000B</code>。</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>匹配换页，<code>\u000C</code>。</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>匹配换行，<code>\u000A</code>。</td>
+</tr>
+<tr>
+<td><code>\e</code></td>
+<td>匹配转义，<code>\u001B</code>。</td>
+</tr>
+<tr>
+<td><code>\</code> <em>nnn</em></td>
+<td>匹配 ASCII 字符，其中 <em>nnn</em> 包含表示八进制字符代码的两位数或三位数。 例如，<code>\040</code> 表示空格字符。 如果此构造仅包含一个数字（如 <code>\2</code>）或者它对应捕获组的编号，则将它解释为向后引用。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/thwdfzxy(v=vs.110" target="_blank" rel="external">反向引用构造</a>.aspx)。）</td>
+</tr>
+<tr>
+<td><code>\x</code> <em>nn</em></td>
+<td>匹配 ASCII 字符，其中 <em>nn</em> 是两位数的十六进制字符代码。</td>
+</tr>
+<tr>
+<td><code>\c</code> <em>X</em></td>
+<td>匹配 ASCII 控制字符，其中 X 是控制字符的字母。 例如，<code>\cC</code> 为 CTRL-C。</td>
+</tr>
+<tr>
+<td><code>\u</code> <em>nnnn</em></td>
+<td>匹配的 UTF-16 代码单元，单元值是 <em>nnnn</em> 十六进制。 <strong>Note:</strong> .NET Framework 不支持用于指定 Unicode 的 Perl 5 字符转义。 Perl 5 字符转义采用以下格式 <code>\x{</code><em>####</em><code>…}</code>，其中 <em>####</em><code>…</code> 是一系列十六进制数字。 改用 <code>\u</code><em>nnnn</em>。</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>后接字符未识别为转义字符时，将匹配此字符。 例如，<code>\*</code> 匹配星号 (*) 并等同于 <code>\x2A</code>。</td>
+</tr>
+</tbody>
+</table>
+<p>RegExp对象方法：</p>
+<ul>
+<li>exec</li>
+<li>test</li>
+</ul>
+<p>String内置构造函数方法：</p>
+<ul>
+<li>match</li>
+<li>search</li>
+<li>replace</li>
+<li>split</li>
+</ul>
+<p>####列举日常使用的正则表达式匹配：</p>
+<ul>
+<li><p>匹配url参数：key需要传入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/[?&amp;]&quot;+ key +&quot;=([^&amp;]*)/</div></pre></td></tr></table></figure>
+</li>
+<li><p>匹配邮箱：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^[a-zA-Z0-9][a-zA-Z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/</div></pre></td></tr></table></figure>
+</li>
+<li><p>身份证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^\d&#123;6&#125;(18|19|20)?\d&#123;2&#125;(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d&#123;3&#125;(\d|X|x)$/</div></pre></td></tr></table></figure>
+</li>
+<li><p>html标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/&lt;[^&gt;]+&gt;/ or /&lt;[a-z|/|A-Z]+&gt;/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/04/正则表达式总结/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-浏览器从输入URL到显示总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -948,71 +1097,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/02/20/javascript实现数组元素去重/#more">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-git的基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/31/git的基本用法/">git的基本用法</a>
-    </h1>
-  
-
-        <a href="/2016/01/31/git的基本用法/" class="archive-article-date">
-  	<time datetime="2016-01-31T08:20:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-31</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前一直是用gitextension开发，图形化界面的好处就是简单易懂，现在可能我水平还不够，不能够说出他很多坏处，至于现在我开始放弃使用git的图形化界面完全是因为现在的公司，现在的工作开发仓库用git，所以平时也就联系一下使用git命令行呗。</p>
-<p>使用git命令好处还是有的。这练着练着就觉得git的命令行方式确实比较高端，首先看着高端，毕竟要记住好多命令嘛，装个逼。。哈哈。其次，用命令行基本不会出行卡机的现象，用过gitextension的都知道那个软件经常会卡。然后我记得第一次拉去git项目必须用命令行吧。用git extension拉取不下来。命令行的好处就体现出来了。最重要的是，如果你能把git的命令掌握的很熟练的话，操作起来肯定比用图形化界面快。</p>
-<p>经过这几天的摸索，现在总结学到的基本命令：</p>
-<ul>
-<li>克隆档案库： <code>git clone 【github上的那个https或者ssh地址】</code>;</li>
-<li>添加，新添加文件要提交，首先：<code>git add --all</code>;</li>
-<li>提交本地档案库，都加上之后再：<code>git commit -a</code>，如果没有新添加的文件，直接运行此命令;</li>
-<li>查看分支状态：<code>git status</code>，从这里可以看出那些文件没提交，哪些问价是新添加的;</li>
-<li>提交远程档案库，<code>git push</code>，这样，你就可以从另一台电脑上访问github查看你在别的电脑上提交的代码了；</li>
-<li>拉取代码：<code>git pull</code>；</li>
-<li>新建分支：<code>git branch 【分支名字】</code>;</li>
-<li>切换分支：<code>git checkout [分支名字]</code>，注意切换之前必须在本地提交代码;</li>
-<li>把分支加入远程端：<code>git remote add [远程服务器端名字，随便起一个名字][github上的那个https或者ssh地址]</code>；</li>
-<li>推送新分支到github上：<code>git push [远程服务器端名字][分支名字]</code>;</li>
-<li>查看最近操作记录：<code>git log</code>;</li>
-<li></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/31/git的基本用法/#more">展开全文 >></a>
         </p>
       
 

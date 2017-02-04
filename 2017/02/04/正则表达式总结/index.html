@@ -6,21 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.western-ranger.com">
-  <title>浏览器从输入URL到显示总结 | 西泊浪人</title>
+  <title>正则表达式总结 | 西泊浪人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）
-123456789101112131415161718192021注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可以根据自己擅长的领域自由发挥，从URL规范、HTTP协议、DNS、CDN、数据库查询、到浏览器流式解析、CSS规则构建、layout、paint、onload/domrea">
+  <meta name="description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式：
+使用一个正则表达式字面量，如下所示：
+1var re = /ab+c/;
+正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。
+调用RegExp对象的构造函数，如下所示：
+1var re = new RegExp(&amp;quot;ab+c&amp;quot;);
+使用构造函数，提供了对正则表达式运行时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器从输入URL到显示总结">
-<meta property="og:url" content="http://blog.western-ranger.com/2017/02/04/浏览器从输入URL到显示总结/index.html">
+<meta property="og:title" content="正则表达式总结">
+<meta property="og:url" content="http://blog.western-ranger.com/2017/02/04/正则表达式总结/index.html">
 <meta property="og:site_name" content="西泊浪人">
-<meta property="og:description" content="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）
-123456789101112131415161718192021注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可以根据自己擅长的领域自由发挥，从URL规范、HTTP协议、DNS、CDN、数据库查询、到浏览器流式解析、CSS规则构建、layout、paint、onload/domrea">
-<meta property="og:updated_time" content="2017-02-04T02:05:04.000Z">
+<meta property="og:description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式：
+使用一个正则表达式字面量，如下所示：
+1var re = /ab+c/;
+正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。
+调用RegExp对象的构造函数，如下所示：
+1var re = new RegExp(&amp;quot;ab+c&amp;quot;);
+使用构造函数，提供了对正则表达式运行时">
+<meta property="og:updated_time" content="2017-02-04T02:06:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器从输入URL到显示总结">
-<meta name="twitter:description" content="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）
-123456789101112131415161718192021注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，而高手可以根据自己擅长的领域自由发挥，从URL规范、HTTP协议、DNS、CDN、数据库查询、到浏览器流式解析、CSS规则构建、layout、paint、onload/domrea">
+<meta name="twitter:title" content="正则表达式总结">
+<meta name="twitter:description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式：
+使用一个正则表达式字面量，如下所示：
+1var re = /ab+c/;
+正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。
+调用RegExp对象的构造函数，如下所示：
+1var re = new RegExp(&amp;quot;ab+c&amp;quot;);
+使用构造函数，提供了对正则表达式运行时">
   
     <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
   
@@ -136,26 +151,125 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-浏览器从输入URL到显示总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-正则表达式总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      浏览器从输入URL到显示总结
+      正则表达式总结
     </h1>
   
 
-        <a href="/2017/02/04/浏览器从输入URL到显示总结/" class="archive-article-date">
-  	<time datetime="2017-02-04T02:04:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+        <a href="/2017/02/04/正则表达式总结/" class="archive-article-date">
+  	<time datetime="2017-02-04T02:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，</div><div class="line">而高手可以根据自己擅长的领域自由发挥，从URL规范、HTTP协议、DNS、CDN、数据库查询、</div><div class="line">到浏览器流式解析、CSS规则构建、layout、paint、onload/domready、JS执行、JS API绑定等等；</div><div class="line"></div><div class="line">详细版：</div><div class="line">  1、浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理;</div><div class="line">  2、调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;</div><div class="line">  3、通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;</div><div class="line">  4、进行HTTP协议会话，客户端发送报头(请求报头);</div><div class="line">  5、进入到web服务器上的 Web Server，如 Apache、Tomcat、Node.JS 等服务器;</div><div class="line">  6、进入部署好的后端应用，如 PHP、Java、JavaScript、Python 等，找到对应的请求处理;</div><div class="line">  7、处理结束回馈报头，此处如果浏览器访问过，缓存上有对应资源，会与服务器最后修改时间对比，一致则返回304;</div><div class="line">  8、浏览器开始下载html文档(响应报头，状态码200)，同时使用缓存;</div><div class="line">  9、文档树建立，根据标记请求所需指定MIME类型的文件（比如css、js）,同时设置了cookie;</div><div class="line">  10、页面开始渲染DOM，JS根据DOM API操作DOM,执行事件绑定等，页面显示完成。</div><div class="line"></div><div class="line">简洁版：</div><div class="line">  浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求；</div><div class="line">  服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；</div><div class="line">  浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；</div><div class="line">  载入解析到的资源文件，渲染页面，完成。</div></pre></td></tr></table></figure>
+        <h1 id="u6B63_u5219_u8868_u8FBE_u5F0F"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="u521B_u5EFA_u4E00_u4E2A_u6B63_u5219_u8868_u8FBE_u5F0F"><a href="#u521B_u5EFA_u4E00_u4E2A_u6B63_u5219_u8868_u8FBE_u5F0F" class="headerlink" title="创建一个正则表达式"></a>创建一个正则表达式</h2><p>你可以通过下面两种方法创建一个正则表达式：</p>
+<p>使用一个正则表达式字面量，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = /ab+c/;</div></pre></td></tr></table></figure>
+<p>正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。</p>
+<p>调用<code>RegExp</code>对象的构造函数，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = new RegExp(&quot;ab+c&quot;);</div></pre></td></tr></table></figure>
+<p>使用构造函数，提供了对正则表达式运行时的编译。当你知道正则表达式的模式会发生改变， 或者你事先并不了解它的模式或者是从其他地方（比如用户的输入），得到的代码这时比较适合用构造函数的方式。</p>
+<h4 id="u6B63_u5219_u8868_u8FBE_u5F0F_u652F_u6301_u7684_u5B57_u7B26_u8F6C_u4E49"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F_u652F_u6301_u7684_u5B57_u7B26_u8F6C_u4E49" class="headerlink" title="正则表达式支持的字符转义"></a>正则表达式支持的字符转义</h4><table>
+<thead>
+<tr>
+<th>字符或序列</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>除以下字符外的所有字符：。 $ ^ { [ ( \</td>
+<td>) * + ? \</td>
+<td>“字符或序列”列中未包含的字符在正则表达式中没有特殊含义；此类字符与自身匹配。“字符或序列”列中包括的字符均为特殊的正则表达式语言元素。 若要在正则表达式中匹配这些字符，必须将其转义或纳入 <a href="https://msdn.microsoft.com/zh-cn/library/20bw873z(v=vs.110" target="_blank" rel="external">ppositive 字符组</a>.aspx)。 例如，正则表达式 <code>\$\d+</code> 或 <code>[$]\d+</code> 匹配“$1200”。</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>匹配响铃（警报）字符，<code>\u0007</code>。</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>在 <code>[</code><em>character_group</em><code>]</code> 字符类中，匹配退格，<code>\u0008</code>。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/20bw873z(v=vs.110" target="_blank" rel="external">字符类</a>.aspx)。） 在字符类之外，<code>\b</code> 是匹配字边界的定位点。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/h5181w5w(v=vs.110" target="_blank" rel="external">定位点</a>.aspx)。）</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>匹配制表符，<code>\u0009</code>。</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>匹配回车，<code>\u000D</code>。 请注意，<code>\r</code> 不等同于换行符，<code>\n</code>。</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>匹配垂直制表符，<code>\u000B</code>。</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>匹配换页，<code>\u000C</code>。</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>匹配换行，<code>\u000A</code>。</td>
+</tr>
+<tr>
+<td><code>\e</code></td>
+<td>匹配转义，<code>\u001B</code>。</td>
+</tr>
+<tr>
+<td><code>\</code> <em>nnn</em></td>
+<td>匹配 ASCII 字符，其中 <em>nnn</em> 包含表示八进制字符代码的两位数或三位数。 例如，<code>\040</code> 表示空格字符。 如果此构造仅包含一个数字（如 <code>\2</code>）或者它对应捕获组的编号，则将它解释为向后引用。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/thwdfzxy(v=vs.110" target="_blank" rel="external">反向引用构造</a>.aspx)。）</td>
+</tr>
+<tr>
+<td><code>\x</code> <em>nn</em></td>
+<td>匹配 ASCII 字符，其中 <em>nn</em> 是两位数的十六进制字符代码。</td>
+</tr>
+<tr>
+<td><code>\c</code> <em>X</em></td>
+<td>匹配 ASCII 控制字符，其中 X 是控制字符的字母。 例如，<code>\cC</code> 为 CTRL-C。</td>
+</tr>
+<tr>
+<td><code>\u</code> <em>nnnn</em></td>
+<td>匹配的 UTF-16 代码单元，单元值是 <em>nnnn</em> 十六进制。 <strong>Note:</strong> .NET Framework 不支持用于指定 Unicode 的 Perl 5 字符转义。 Perl 5 字符转义采用以下格式 <code>\x{</code><em>####</em><code>…}</code>，其中 <em>####</em><code>…</code> 是一系列十六进制数字。 改用 <code>\u</code><em>nnnn</em>。</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>后接字符未识别为转义字符时，将匹配此字符。 例如，<code>\*</code> 匹配星号 (*) 并等同于 <code>\x2A</code>。</td>
+</tr>
+</tbody>
+</table>
+<p>RegExp对象方法：</p>
+<ul>
+<li>exec</li>
+<li>test</li>
+</ul>
+<p>String内置构造函数方法：</p>
+<ul>
+<li>match</li>
+<li>search</li>
+<li>replace</li>
+<li>split</li>
+</ul>
+<p>####列举日常使用的正则表达式匹配：</p>
+<ul>
+<li><p>匹配url参数：key需要传入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/[?&amp;]&quot;+ key +&quot;=([^&amp;]*)/</div></pre></td></tr></table></figure>
+</li>
+<li><p>匹配邮箱：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^[a-zA-Z0-9][a-zA-Z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/</div></pre></td></tr></table></figure>
+</li>
+<li><p>身份证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^\d&#123;6&#125;(18|19|20)?\d&#123;2&#125;(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d&#123;3&#125;(\d|X|x)$/</div></pre></td></tr></table></figure>
+</li>
+<li><p>html标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/&lt;[^&gt;]+&gt;/ or /&lt;[a-z|/|A-Z]+&gt;/</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
 
@@ -245,7 +359,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/02/04/浏览器从输入URL到显示总结/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/02/04/正则表达式总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,18 +373,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/04/正则表达式总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          正则表达式总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/04/tmux-handle/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">tmux handle</div>
+    <a href="/2017/02/04/浏览器从输入URL到显示总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器从输入URL到显示总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -283,7 +388,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="浏览器从输入URL到显示总结" data-title="浏览器从输入URL到显示总结" data-url="http://blog.western-ranger.com/2017/02/04/浏览器从输入URL到显示总结/"></div>
+	<div class="ds-thread" data-thread-key="正则表达式总结" data-title="正则表达式总结" data-url="http://blog.western-ranger.com/2017/02/04/正则表达式总结/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
