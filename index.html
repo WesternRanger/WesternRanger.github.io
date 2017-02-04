@@ -131,6 +131,56 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-浏览器从输入URL到显示总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/浏览器从输入URL到显示总结/">浏览器从输入URL到显示总结</a>
+    </h1>
+  
+
+        <a href="/2017/02/04/浏览器从输入URL到显示总结/" class="archive-article-date">
+  	<time datetime="2017-02-04T02:04:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">注：这题胜在区分度高，知识点覆盖广，再不懂的人，也能答出几句，</div><div class="line">而高手可以根据自己擅长的领域自由发挥，从URL规范、HTTP协议、DNS、CDN、数据库查询、</div><div class="line">到浏览器流式解析、CSS规则构建、layout、paint、onload/domready、JS执行、JS API绑定等等；</div><div class="line"></div><div class="line">详细版：</div><div class="line">  1、浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理;</div><div class="line">  2、调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;</div><div class="line">  3、通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;</div><div class="line">  4、进行HTTP协议会话，客户端发送报头(请求报头);</div><div class="line">  5、进入到web服务器上的 Web Server，如 Apache、Tomcat、Node.JS 等服务器;</div><div class="line">  6、进入部署好的后端应用，如 PHP、Java、JavaScript、Python 等，找到对应的请求处理;</div><div class="line">  7、处理结束回馈报头，此处如果浏览器访问过，缓存上有对应资源，会与服务器最后修改时间对比，一致则返回304;</div><div class="line">  8、浏览器开始下载html文档(响应报头，状态码200)，同时使用缓存;</div><div class="line">  9、文档树建立，根据标记请求所需指定MIME类型的文件（比如css、js）,同时设置了cookie;</div><div class="line">  10、页面开始渲染DOM，JS根据DOM API操作DOM,执行事件绑定等，页面显示完成。</div><div class="line"></div><div class="line">简洁版：</div><div class="line">  浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求；</div><div class="line">  服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；</div><div class="line">  浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；</div><div class="line">  载入解析到的资源文件，渲染页面，完成。</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/04/浏览器从输入URL到显示总结/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-tmux-handle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -963,62 +1013,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/01/31/git的基本用法/#more">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-js重复绑定事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/26/js重复绑定事件/">js重复绑定事件</a>
-    </h1>
-  
-
-        <a href="/2016/01/26/js重复绑定事件/" class="archive-article-date">
-  	<time datetime="2016-01-26T09:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>昨天被自己绑定click事件坑了一下子，学浅乃危险之事。如果读书多了就不会犯这样的错误了。<br><img src="http://img.blog.csdn.net/20150715111453995" alt="如图">        <img src="http://img.blog.csdn.net/20150715111726739" alt="这里写图片描述"><br>这样一个下拉框，点击“我选1”会生成一条“hello world！！！”，点“继续添加”则会继续添加。如果点击”我选2“也会像之前一样，首先把之前的记录清除掉，再生成一条，可以继续添加，一次生成一条”hello world！！！“</p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var nodeArea = &apos;&lt;div class=&quot;moOrRanArea&quot; style=&quot;border:#000 solid 1px;margin:10px 0;&quot;&gt;\</div><div class="line">							hello world!!!\</div><div class="line">						&lt;/div&gt;&apos;;</div><div class="line">		$(&quot;#moOrRan&quot;).change(function()&#123;</div><div class="line">			if(this.value!=0)&#123;</div><div class="line">				$(&quot;.externalArea .moOrRanArea&quot;).remove();</div><div class="line">				$(&quot;.externalArea&quot;).show().append($(nodeArea));</div><div class="line">				$(&quot;#addArea&quot;).bind(&quot;click&quot;,function()&#123;</div><div class="line">					$(&quot;.externalArea&quot;).append($(nodeArea));</div><div class="line">				&#125;)</div><div class="line"></div><div class="line">			&#125;else&#123;</div><div class="line">				$(&quot;.externalArea&quot;).hide();</div><div class="line">				$(&quot;.externalArea .moOrRanArea&quot;).remove();</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<p>看起来没啥问题，但是实际运行是有问题的，从”我选1“切换到”他选二“，刚切换过去是这样的：<br><img src="http://img.blog.csdn.net/20150715112340987" alt="这里写图片描述"><br>我点一次”继续添加“就成这样了：<br><img src="http://img.blog.csdn.net/20150715112449220" alt="这里写图片描述"><br>点击一次，增加了两条！！！<br>我考虑了半天。。。然后打断点各种试，发现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;#addArea&quot;).bind(&quot;click&quot;,function()&#123;</div><div class="line">					$(&quot;.externalArea&quot;).append($(nodeArea));</div><div class="line">				&#125;)</div></pre></td></tr></table></figure>
-<p>从”我选1“切换到”他选2“的时候，每点击一次继续添加，这段代码执行了两边。原来是”$(“#addArea”)“，这个dom元素添加了两次click事件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#addArea&quot;).unbind(&quot;click&quot;).bind(&quot;click&quot;,function()&#123;...&#125;)</div></pre></td></tr></table></figure>
-<p>首先绑定unbind就搞定。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/26/js重复绑定事件/#more">展开全文 >></a>
         </p>
       
 
