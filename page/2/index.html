@@ -131,6 +131,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript实现数组元素去重" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/javascript实现数组元素去重/">javascript实现数组元素去重</a>
+    </h1>
+  
+
+        <a href="/2016/02/20/javascript实现数组元素去重/" class="archive-article-date">
+  	<time datetime="2016-02-20T01:21:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如题,这算是一个比较经典的面试题了吧.在日常开发中也会经常遇到.研究一下还是很有价值的,让我们剖析一下.</p>
+<p>随意定义一个数组,比如</p>
+<pre><code>var arr = [1,2,2,3,4];
+</code></pre><p>arr[1]和arr[2]都为2，我们只保留一个。</p>
+<blockquote>
+<p>在解决这个问题之前我们了解一下一种结构叫做”哈希表”，类似这种：</p>
+</blockquote>
+<pre><code>var hash_example = {
+    &quot;百度&quot;    :&quot;http://www.baidu.com/&quot;,
+    &quot;Google&quot;  :&quot;http://www.google.com/&quot;,
+    &quot;微软&quot;    :&quot;http://www.microsoft.com/&quot;
+};
+</code></pre><blockquote>
+<p>怎么样，并不陌生吧，我们最熟悉的键值对形式。<br>刚才那个arr数组有五个元素，我们可以给他对应的做一个五个元素的hash表，让他的每个元素作为hash表的“键”，这样：</p>
+</blockquote>
+<pre><code>var hash_example = {
+    1 : &quot; &quot;,
+    2 : &quot; &quot;,
+    2 : &quot; &quot;,
+    3 : &quot; &quot;,
+    4 : &quot; &quot;
+};
+</code></pre><blockquote>
+<p>在hash_example中有两个重复的项。我们如果把每个键的值用true和false表示，第一次粗现就标记为true，第二次就标记为false，我们只需要去掉键值为false的项，然后把存下来的键放到数组里就ok了。</p>
+</blockquote>
+<pre><code>var hash_example = {
+    1 : true,
+    2 : true,
+    2 : false,
+    3 : true,
+    4 : true
+};
+</code></pre><blockquote>
+<p>利用这个原理，我们首先定义一个空数组来存放去重之后的结果</p>
+</blockquote>
+<pre><code>var newArr = [];
+</code></pre><blockquote>
+<p>然后定义一个hash表结构</p>
+</blockquote>
+<pre><code>var hash = {};
+</code></pre><blockquote>
+<p>遍历数组，构建哈希表，并得出新数组</p>
+</blockquote>
+<pre><code>for(var i=0;i&lt;arr.length;i++){
+    if(!hash[arr[i]]){
+        newArr.push(arr[i]);
+        hash[arr[i]] = true;        
+    }
+}
+</code></pre><blockquote>
+<p>大功告成。</p>
+</blockquote>
+<p><em>西泊浪人&copy;blog.western-ranger.com</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/20/javascript实现数组元素去重/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-git的基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
