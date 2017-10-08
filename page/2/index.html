@@ -131,6 +131,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript实现数组铺平" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/javascript实现数组铺平/">javascript实现数组铺平</a>
+    </h1>
+  
+
+        <a href="/2016/02/20/javascript实现数组铺平/" class="archive-article-date">
+  	<time datetime="2016-02-20T02:42:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先解释一下“铺平”，比如一个数组：[1,[7,3],4]，他的第二个元素还是一个数组，我们需要把它提取出来，最后应该是这样[1,7,3,4]，这就是铺平。</p>
+<p>思路很简单，遍历数组，每个元素判断是否为数组元素，不是的话就push到一个新数组，是的话就遍历当前数组元素，不是数组元素的继续push… 这样周而复始的递归调用。听糊涂了吧。直接上代码吧。<br>一个待铺平的数组</p>
+<pre><code>var arr = [1,[[2,3],3],4];
+</code></pre><p>定义一个空数组存放处理结果：</p>
+<pre><code>var newArr = [];
+</code></pre><p>判断是否为数组的jQueryAPI ：isArray，然后写一个处理数组的function：</p>
+<pre><code>var dealArr = function(arr){
+    for (var i = 0;i&lt;arr.length;i++){
+        $.isArray(arr[i]) ? dealArr(arr[i]) : newArr.push(arr[i]);
+       }
+       return newArr;
+};
+</code></pre><p>这样一个处理数组铺平的函数就写好了。其实我们还可以拓展一下。我们发现自己没做多少工作，很多工作都是让jQuery的那个api－isArray给帮忙做了。我们知道js的六大数据类型：</p>
+<ul>
+<li>mumber</li>
+<li>string</li>
+<li>boolean</li>
+<li>null</li>
+<li>undefined</li>
+<li>object</li>
+</ul>
+<p>这之中并没有array类型，想想就知道jQuery肯定是在isArray判断了数组类型，那么它到底怎么判断的，我们需要探究一下，jQuery源码，如果不想读源码，就直接百度或者google。网上一堆结果。你会发现这样一句话：</p>
+<pre><code>Object.prototype.toString.call(obj)
+</code></pre><p>没错，这就是原生js判断数据类型的方法：可以参考 <a href="http://blog.sina.com.cn/s/blog_51048da70101grz6.html" target="_blank" rel="external">如何判断js中的数据类型</a></p>
+<p>我们给数组对象添加一个铺平数组的api：panelArr</p>
+<pre><code>Array.prototype.panelArr = function(){
+    var newArr = [];
+    var isArray = function(obj) {
+        return Object.prototype.toString.call(obj) === &apos;[object Array]&apos;;
+    };
+    var dealArr = function(arr){
+        for (var i = 0;i&lt;arr.length;i++){
+            isArray(arr[i]) ? dealArr(arr[i]) : newArr.push(arr[i]);
+        }
+    };
+    dealArr(this);
+    return newArr;
+};
+</code></pre><p>可以验证一下，比如执行 <strong>[1,[[2,3],3],4].panelArr()</strong> 的结果就是 [1,2,3,3,4]。</p>
+<p>西泊浪人&copy;blog.western-ranger.com</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/20/javascript实现数组铺平/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-javascript实现数组元素去重" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
