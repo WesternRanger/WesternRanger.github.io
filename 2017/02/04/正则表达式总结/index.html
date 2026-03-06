@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>正则表达式总结 | 西泊浪人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式： 使用一个正则表达式字面量，如下所示： 1var re &#x3D; &#x2F;ab+c&#x2F;; 正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。 调用RegExp对象的构造函数，如下所示： 1var re &#x3D; new RegExp(&quot;ab+c&quot;); 使用构造函数，提供了对正则表达式运行时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式总结">
+<meta property="og:url" content="https://blog.western-ranger.com/2017/02/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/">
+<meta property="og:site_name" content="西泊浪人">
+<meta property="og:description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式： 使用一个正则表达式字面量，如下所示： 1var re &#x3D; &#x2F;ab+c&#x2F;; 正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。 调用RegExp对象的构造函数，如下所示： 1var re &#x3D; new RegExp(&quot;ab+c&quot;); 使用构造函数，提供了对正则表达式运行时">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-04T02:06:01.000Z">
+<meta property="article:modified_time" content="2026-03-06T08:16:24.355Z">
+<meta property="article:author" content="WesternRanger">
+<meta property="article:tag" content="前端, JavaScript, React, Vue, CSS, HTML">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">西泊浪人</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Western Ranger</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.western-ranger.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-正则表达式总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/02/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2017-02-04T02:06:01.000Z" itemprop="datePublished">2017-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      正则表达式总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="正则表达式创建一个正则表达式"><a href="#正则表达式创建一个正则表达式" class="headerlink" title="正则表达式创建一个正则表达式"></a>正则表达式创建一个正则表达式</h2><p>你可以通过下面两种方法创建一个正则表达式：</p>
+<p>使用一个正则表达式字面量，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/ab+c/</span>;</span><br></pre></td></tr></table></figure>
+<p>正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。</p>
+<p>调用RegExp对象的构造函数，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;ab+c&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>使用构造函数，提供了对正则表达式运行时的编译。当你知道正则表达式的模式会发生改变，或者你事先并不了解它的模式或者是从其他地方（比如用户的输入），得到的代码这时比较适合用构造函数的方式。</p>
+<h2 id="正则表达式支持的字符转义"><a href="#正则表达式支持的字符转义" class="headerlink" title="正则表达式支持的字符转义"></a>正则表达式支持的字符转义</h2><table>
+<thead>
+<tr>
+<th>字符或序列</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>除以下字符外的所有字符：。 $ ^ { [ ( \ ) * + ? \</td>
+<td>“字符或序列”列中未包含的字符在正则表达式中没有特殊含义；此类字符与自身匹配。”字符或序列”列中包括的字符均为特殊的正则表达式语言元素。若要在正则表达式中匹配这些字符，必须将其转义或纳入 positive 字符组。例如，正则表达式 \$\d+ 或 [$]\d+ 匹配”$1200”。</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>匹配响铃（警报）字符，\u0007。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>在 [character_group] 字符类中，匹配退格，\u0008。（请参阅字符类)。）在字符类之外，\b 是匹配字边界的定位点。（请参阅定位点)。</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配制表符，\u0009。</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>匹配回车，\u000D。请注意，\r 不等同于换行符，\n。</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>匹配垂直制表符，\u000B。</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>匹配换页，\u000C。</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配换行，\u000A。</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>匹配转义，\u001B。</td>
+</tr>
+<tr>
+<td>\ nnn</td>
+<td>匹配 ASCII 字符，其中 nnn 包含表示八进制字符代码的两位数或三位数。例如，\040 表示空格字符。如果此构造仅包含一个数字（如 \2）或者它对应捕获组的编号，则将它解释为向后引用。（请参阅反向引用构造)。）</td>
+</tr>
+<tr>
+<td>\x nn</td>
+<td>匹配 ASCII 字符，其中 nn 是两位数的十六进制字符代码。</td>
+</tr>
+<tr>
+<td>\c X</td>
+<td>匹配 ASCII 控制字符，其中 X 是控制字符的字母。例如，\cC 为 CTRL-C。</td>
+</tr>
+<tr>
+<td>\u nnnn</td>
+<td>匹配的 UTF-16 代码单元，单元值是 nnnn 十六进制。</td>
+</tr>
+<tr>
+<td>\</td>
+<td>后接字符未识别为转义字符时，将匹配此字符。例如，\* 匹配星号 (*) 并等同于 \x2A。</td>
+</tr>
+</tbody></table>
+<h2 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h2><ul>
+<li>exec</li>
+<li>test</li>
+</ul>
+<h2 id="String内置构造函数方法"><a href="#String内置构造函数方法" class="headerlink" title="String内置构造函数方法"></a>String内置构造函数方法</h2><ul>
+<li>match</li>
+<li>search</li>
+<li>replace</li>
+<li>split</li>
+</ul>
+<h2 id="列举日常使用的正则表达式匹配"><a href="#列举日常使用的正则表达式匹配" class="headerlink" title="列举日常使用的正则表达式匹配"></a>列举日常使用的正则表达式匹配</h2><p>匹配url参数：key需要传入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[?&amp;]<span class="string">&quot;+ key +&quot;</span>=([^&amp;]*)/</span><br></pre></td></tr></table></figure>
+
+<p>匹配邮箱：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-<span class="variable constant_">Z0</span>-<span class="number">9</span>][a-zA-<span class="variable constant_">Z0</span>-<span class="number">9.</span>_-]+@[a-zA-<span class="variable constant_">Z0</span>-9_-]+(\.[a-zA-<span class="variable constant_">Z0</span>-9_-]+)+$/</span><br></pre></td></tr></table></figure>
+
+<p>身份证：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d&#123;<span class="number">6</span>&#125;(<span class="number">18</span>|<span class="number">19</span>|<span class="number">20</span>)?\d&#123;<span class="number">2</span>&#125;(<span class="number">0</span>[<span class="number">1</span>-<span class="number">9</span>]|<span class="number">1</span>[<span class="number">012</span>])(<span class="number">0</span>[<span class="number">1</span>-<span class="number">9</span>]|[<span class="number">12</span>]\d|<span class="number">3</span>[<span class="number">01</span>])\d&#123;<span class="number">3</span>&#125;(\d|X|x)$/</span><br></pre></td></tr></table></figure>
+
+<p>html标签：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/&lt;[^&gt;]+&gt;/ </span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="regexp">/&lt;[a-z|/|A-Z]+&gt;/</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.western-ranger.com/2017/02/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/" data-id="cmmemmlc6000bc5mg6dqubaq7" data-title="正则表达式总结" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/05/%E7%83%9F%E8%8A%B1%E6%98%93%E5%86%B7%E5%88%9B%E4%BD%9C%E8%83%8C%E6%99%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          烟花易冷创作背景
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%98%BE%E7%A4%BA%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">浏览器从输入URL到显示总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/06/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/05/%E7%83%9F%E8%8A%B1%E6%98%93%E5%86%B7%E5%88%9B%E4%BD%9C%E8%83%8C%E6%99%AF/">烟花易冷创作背景</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/">正则表达式总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%98%BE%E7%A4%BA%E6%80%BB%E7%BB%93/">浏览器从输入URL到显示总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/tmux-handle/">tmux handle</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WesternRanger<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>react-native学习日记 | 西泊浪人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前端领域发展之迅速，令人瞠目结舌。 如果你心目中的前端就是html css jquery这些东西的话，在我心中，那是上个世代的前端。但我不骗你，这样的前端目前仍然是主流需求。 很多朋友跟我说html+css+js很简单啊，我上学的时候就学过。是啊，你给我讲讲浏览器渲染dom的过程吧。你应该很精通了吧。如果你说，这个过程是这样滴：  计算CSS样式 构建Render Tree Layout – 定位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native学习日记">
+<meta property="og:url" content="https://blog.western-ranger.com/2016/12/25/react-native%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+<meta property="og:site_name" content="西泊浪人">
+<meta property="og:description" content="前端领域发展之迅速，令人瞠目结舌。 如果你心目中的前端就是html css jquery这些东西的话，在我心中，那是上个世代的前端。但我不骗你，这样的前端目前仍然是主流需求。 很多朋友跟我说html+css+js很简单啊，我上学的时候就学过。是啊，你给我讲讲浏览器渲染dom的过程吧。你应该很精通了吧。如果你说，这个过程是这样滴：  计算CSS样式 构建Render Tree Layout – 定位">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-25T07:33:48.000Z">
+<meta property="article:modified_time" content="2026-03-06T08:17:46.609Z">
+<meta property="article:author" content="WesternRanger">
+<meta property="article:tag" content="前端, JavaScript, React, Vue, CSS, HTML">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">西泊浪人</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Western Ranger</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.western-ranger.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-react-native学习日记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/12/25/react-native%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2016-12-25T07:33:48.000Z" itemprop="datePublished">2016-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      react-native学习日记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>前端领域发展之迅速，令人瞠目结舌。</p>
+<p>如果你心目中的前端就是html css jquery这些东西的话，在我心中，那是上个世代的前端。但我不骗你，这样的前端目前仍然是主流需求。</p>
+<p>很多朋友跟我说html+css+js很简单啊，我上学的时候就学过。是啊，你给我讲讲浏览器渲染dom的过程吧。你应该很精通了吧。如果你说，这个过程是这样滴：</p>
+<ol>
+<li>计算CSS样式</li>
+<li>构建Render Tree</li>
+<li>Layout – 定位坐标和大小，是否换行，各种position, overflow, z-index属性 ……</li>
+<li>paint 开始画</li>
+</ol>
+<p>好的，你还不错嘛，来来来，再来聊聊 Reflow 和 Repaint吧？越详细越好、说重点、不得少于800字，呵呵呵。</p>
+<p>dom的东西太多，创建一个dom属性和方法一共228个（嗯？一个div是这样的吧）聊太多我怕把你聊哭。</p>
+<p>你说dom太小儿科，来点稍微高大上的东西吧。聊聊 Cascading Style Sheets？嗯。讲一下css优先级？水平三栏布局写三种实现？不许用table、inline-block!!!聊聊 block formatting context？写css的人怎么能没用过sass和less，哦在sass里写个函数，定义几个变量真的可以让共用的css调用起来更加方便，最近貌似一个叫PostCSS的家伙挺火，因为vue-loader？</p>
+<p>与时俱进，前端逐渐从pc端转换到移动端</p>
+<p>移动端适配是个大问题。不知道REM适配你能算个前端？稍微有点逼格的公司的UI出图的时候都会给前端3倍dpr和2倍dpr的图各一张。移动端用户体验节省流量同样重要，你来做下适配？你不知道什么是dpr？物理像素和设备独立像素知道？等一下，设计师过来告诉你说1px怎么这么宽，你来适配一下？卧槽？1px？我这就是写的1px啊！！！适配个屌啊？怎么适配？嗯，google上适配Retina屏1px线的文章一抓一大片哦。</p>
+<p>一些基础css东西我不会又有什么关系呢？我照样可以干活，嗯。我一个小小样式冲突就可以让你盯着屏幕瞅一天。</p>
+<p>嗯。该聊聊js了，哦不，应该叫ES6，是啊。现在还有几个人不用ES6啊。但是大多数浏览器对ES6支持不是很完善，chrome也是如此，你需要用babel转一下，babel5和babel6是不一样的哦。你需要配置前端自动化工具，gulp、webpack、grunt你值得拥有。结合jquery／zepto用起来更流弊？写个ajax回调分分钟进入回调地狱，啥？用window.fetch结合promise，再牛逼的你可以用generator啊。浏览器不支持咋办？用polyfill啊。人家说都2017年了，你还用jquery／zepto？没用过vue+vuex／react+redux你好意思说你是做前端的？你们还跟我聊MVC架构？我日，前端都分MVVM啦。</p>
+<p>你所谓的前端html+css+js就上面这些？嗯。恭喜你，你可以进入一家公司实习了。</p>
+<p>经过这么多年发展，js已经可以运行到几乎所有平台了，嗯！！！之前的报道JavaScript 统治的世界，烤面包机将能运行 JS 了，这并不是噱头。js要统治世界了JavaScript 就要统治世界了？，话虽然说的比较绝对，毕竟近几年的的js发展势头喜人。</p>
+<p>在我看来，成为一个合格的初中级前端工程师，要集 知识广度&amp;&amp;代码能力&amp;&amp;艺术美感 于一体，为了达成这个目的，你至少还要具备如下技能：</p>
+<p>作为一个前端,你怎么能不会切图？基础的ps操作？<br>npm玩的6吗？nrm是个啥？nvm／n呢？<br>yarn有什么优势？yarn.lock 对比 npm-shrinkwrap.json 有什么进步？<br>怎么优化dom加载？react／vue的 virtual dom 怎么实现的，jsx是什么？<br>如何提高用户访问网站的响应速度？CDN是什么？<br>说说http请求？http和https的区别？<br>http缓存是怎么回事？<br>webapp的登陆状态如何与客户端保持一致？<br>webapp如何与客户端native通信？<br>cookie与localStorage／sessionStorage有什么异同？<br>说说window.history对象吧。history.pushState和history.replaceState有什么区别<br>听说过hjax吗？pjax呢？<br>webapp单页面应用如何解决seo问题？<br>hybrid开发模式优缺点？<br>phoneGap和React Native有什么本质区别？<br>React Native相对于纯native app有什么优缺点？<br>会写动画吗？能用canvas写一个愤怒的小鸟吗？熟悉svg吗？<br>RESTful接口前端渲染界面 VS server端渲染界面 的优点。<br>让一个网站同时支持pc端&amp;手机端，你有几种方案？<br>linux shell基本操作会吧？chmod 571 file.js 是什么意思？<br>用过express吧？怎么把你的个人网站部署到服务器？<br>如果让你做自己的个人网站，如何进行用户权限管理？<br>了解mongoDB吗？什么是关系型数据库？<br>用过mysql吗？如何做msyql的io方面优化？<br>如果要做一个商品的秒杀功能，为避免客户端重复下单（前一段时间的阿里月饼事件），你会怎么限制？你如何去跟服务端沟通？<br>写过爬虫吗？分析一下爬虫的原理。为什么要爬虫？<br>node &amp; python 爬虫的优缺点。<br>什么是跨域？前端跨域的几种方式。<br>jsonp跨域的实现原理。有什么缺点？<br>XSS攻击的原理？如何防御？什么是CSRF攻击？怎么防御？<br>iframe还有应用场景吗？<br>用过zsh？zsh对比bash有哪些优点？<br>用过atom吗？atom是怎么用什么语言开发的？<br>git&amp;svn的使用经历？对比一下各自的优缺点？<br>用过那些好用的git&amp;svn的图形化工具？<br>fiddler&amp;charles&amp;wireshark都用过吗？怎么抓包https？<br>开发webapp如何在设备上调试<br>喜欢写markdown吗，用过哪些好用的书写markdown的工具？<br>有没有做过微信开发？说一下微信开发的认证流程。</p>
+<p>暂时就想到这么多，随着阅历增加，会不断补充。这不，写这么多就是个引子，就是为了说明，前端工程师能做的事情还是很多的，不要妄自菲薄。作为一个涉事不深的前端工程师，应该有足够的自学动力、没有这股动力去探索未知的领域，凭什么去涨薪拿什么去买房子？（认真脸）土豪请忽略。</p>
+<p>最近一直琢磨如何用webapp跟native进行交互，我寻思要想深刻理解，不仅要在项目中推敲，有条件的话还是自己写native模拟一下，嗯。如果RN足够熟练了，可以放弃RN直接上手swift。祝好～</p>
+<p>开始我的RN踩坑之旅～</p>
+<p>RN学习第一弹 -react-native 入坑之 hello world demo</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.western-ranger.com/2016/12/25/react-native%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" data-id="cmmemmlc30005c5mg4zwtdsg4" data-title="react-native学习日记" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/04/zepto%E4%B8%ADattr%E5%92%8Cdata%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          zepto中$.attr 和 $.data 的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/05/%E4%BD%BF%E7%94%A8python%E7%88%AC%E8%99%AB%E5%B0%8F%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">使用python爬虫小记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/06/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/05/%E7%83%9F%E8%8A%B1%E6%98%93%E5%86%B7%E5%88%9B%E4%BD%9C%E8%83%8C%E6%99%AF/">烟花易冷创作背景</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/">正则表达式总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%98%BE%E7%A4%BA%E6%80%BB%E7%BB%93/">浏览器从输入URL到显示总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/tmux-handle/">tmux handle</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WesternRanger<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
