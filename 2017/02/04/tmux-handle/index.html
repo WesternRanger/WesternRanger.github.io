@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>tmux handle | 西泊浪人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="tmux 操作基本操作：  ? 列出所有快捷键；按q返回 d 脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话 s 选择并切换会话；在同时开启了多个会话时使用 D 选择要脱离的会话；在同时开启了多个会话时使用 : 进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话 [ 复制模式，光标移动到复制内容位置，空格键开始，方向键选择复制，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tmux handle">
+<meta property="og:url" content="https://blog.western-ranger.com/2017/02/04/tmux-handle/">
+<meta property="og:site_name" content="西泊浪人">
+<meta property="og:description" content="tmux 操作基本操作：  ? 列出所有快捷键；按q返回 d 脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话 s 选择并切换会话；在同时开启了多个会话时使用 D 选择要脱离的会话；在同时开启了多个会话时使用 : 进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话 [ 复制模式，光标移动到复制内容位置，空格键开始，方向键选择复制，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-04T01:59:33.000Z">
+<meta property="article:modified_time" content="2026-03-06T08:17:01.931Z">
+<meta property="article:author" content="WesternRanger">
+<meta property="article:tag" content="前端, JavaScript, React, Vue, CSS, HTML">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">西泊浪人</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Western Ranger</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.western-ranger.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-tmux-handle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/02/04/tmux-handle/" class="article-date">
+  <time class="dt-published" datetime="2017-02-04T01:59:33.000Z" itemprop="datePublished">2017-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      tmux handle
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>tmux 操作基本操作：</p>
+<ul>
+<li><code>?</code> 列出所有快捷键；按q返回</li>
+<li><code>d</code> 脱离当前会话,可暂时返回Shell界面，输入tmux attach能够重新进入之前会话</li>
+<li><code>s</code> 选择并切换会话；在同时开启了多个会话时使用</li>
+<li><code>D</code> 选择要脱离的会话；在同时开启了多个会话时使用</li>
+<li><code>:</code> 进入命令行模式；此时可输入支持的命令，例如kill-server所有tmux会话</li>
+<li><code>[</code> 复制模式，光标移动到复制内容位置，空格键开始，方向键选择复制，回车确认，q&#x2F;Esc退出</li>
+<li><code>]</code> 进入粘贴模式，粘贴之前复制的内容，按q&#x2F;Esc退出</li>
+<li><code>~</code> 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</li>
+<li><code>t</code> 显示当前的时间</li>
+<li><code>Ctrl+z</code> 挂起当前会话</li>
+</ul>
+<p><strong>窗口操作:</strong></p>
+<ul>
+<li><code>c</code> 创建新窗口</li>
+<li><code>&amp;</code> 关闭当前窗口</li>
+<li><code>数字键</code> 切换到指定窗口</li>
+<li><code>p</code> 切换至上一窗口</li>
+<li><code>n</code> 切换至下一窗口</li>
+<li><code>l</code> 前后窗口间互相切换</li>
+<li><code>w</code> 通过窗口列表切换窗口</li>
+<li><code>,</code> 重命名当前窗口，便于识别</li>
+<li><code>.</code> 修改当前窗口编号，相当于重新排序</li>
+<li><code>f</code> 在所有窗口中查找关键词，便于窗口多了切换</li>
+</ul>
+<p><strong>面板操作:</strong></p>
+<ul>
+<li><code>&quot;</code> 将当前面板上下分屏</li>
+<li><code>%</code> 将当前面板左右分屏</li>
+<li><code>x</code> 关闭当前分屏</li>
+<li><code>!</code> 将当前面板置于新窗口,即新建一个窗口,其中仅包含当前面板</li>
+<li><code>Ctrl+方向键</code> 以1个单元格为单位移动边缘以调整当前面板大小</li>
+<li><code>Alt+方向键</code> 以5个单元格为单位移动边缘以调整当前面板大小</li>
+<li><code>空格键</code> 可以在默认面板布局中切换，试试就知道了</li>
+<li><code>q</code> 显示面板编号</li>
+<li><code>o</code> 选择当前窗口中下一个面板</li>
+<li><code>方向键</code> 移动光标选择对应面板</li>
+<li><code>&#123;</code> 向前置换当前面板</li>
+<li><code>&#125;</code> 向后置换当前面板</li>
+<li><code>Alt+o</code> 逆时针旋转当前窗口的面板</li>
+<li><code>Ctrl+o</code> 顺时针旋转当前窗口的面板</li>
+<li><code>z</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.western-ranger.com/2017/02/04/tmux-handle/" data-id="cmmemzfke0003tomg6t9t83kw" data-title="tmux handle" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%98%BE%E7%A4%BA%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          浏览器从输入URL到显示总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/03/%E5%8D%B8%E7%A3%A8%E6%9D%80%E9%A9%B4-%E6%8D%A2%E4%BA%86vscode%E5%90%90%E6%A7%BDatom/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">卸磨杀驴-换了vscode吐槽atom</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/05/%E7%83%9F%E8%8A%B1%E6%98%93%E5%86%B7%E5%88%9B%E4%BD%9C%E8%83%8C%E6%99%AF/">烟花易冷创作背景</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%80%BB%E7%BB%93/">正则表达式总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%98%BE%E7%A4%BA%E6%80%BB%E7%BB%93/">浏览器从输入URL到显示总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/04/tmux-handle/">tmux handle</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/03/%E5%8D%B8%E7%A3%A8%E6%9D%80%E9%A9%B4-%E6%8D%A2%E4%BA%86vscode%E5%90%90%E6%A7%BDatom/">卸磨杀驴-换了vscode吐槽atom</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WesternRanger<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
