@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://blog.western-ranger.com">
+  <title>西泊浪人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="西泊浪人">
+<meta property="og:url" content="http://blog.western-ranger.com/page/2/index.html">
+<meta property="og:site_name" content="西泊浪人">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="西泊浪人">
+  
+    <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="http://7xp7rf.com1.z0.glb.clouddn.com/1.jpeg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">西泊浪人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">阿基米德：给我个支点，我能撬动地球。西泊浪人：你咋不上天呢。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a data-idx="1" q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a data-idx="2" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/WesternRanger" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/WesternRanger" title="weibo"><i class="icon-weibo"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide">西泊浪人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="http://7xp7rf.com1.z0.glb.clouddn.com/1.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">西泊浪人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">阿基米德：给我个支点，我能撬动地球。西泊浪人：你咋不上天呢。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+		        
+		        	<li><a href="/archives">所有文章</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/WesternRanger" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/WesternRanger" title="weibo"><i class="icon-weibo"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            
+  
+    <article id="post-javascript实现数组铺平" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/javascript实现数组铺平/">javascript实现数组铺平</a>
+    </h1>
+  
+
+        <a href="/2016/02/20/javascript实现数组铺平/" class="archive-article-date">
+  	<time datetime="2016-02-20T02:42:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先解释一下“铺平”，比如一个数组：[1,[7,3],4]，他的第二个元素还是一个数组，我们需要把它提取出来，最后应该是这样[1,7,3,4]，这就是铺平。</p>
+<p>思路很简单，遍历数组，每个元素判断是否为数组元素，不是的话就push到一个新数组，是的话就遍历当前数组元素，不是数组元素的继续push… 这样周而复始的递归调用。听糊涂了吧。直接上代码吧。<br>一个待铺平的数组</p>
+<pre><code>var arr = [1,[[2,3],3],4];
+</code></pre><p>定义一个空数组存放处理结果：</p>
+<pre><code>var newArr = [];
+</code></pre><p>判断是否为数组的jQueryAPI ：isArray，然后写一个处理数组的function：</p>
+<pre><code>var dealArr = function(arr){
+    for (var i = 0;i&lt;arr.length;i++){
+        $.isArray(arr[i]) ? dealArr(arr[i]) : newArr.push(arr[i]);
+       }
+       return newArr;
+};
+</code></pre><p>这样一个处理数组铺平的函数就写好了。其实我们还可以拓展一下。我们发现自己没做多少工作，很多工作都是让jQuery的那个api－isArray给帮忙做了。我们知道js的六大数据类型：</p>
+<ul>
+<li>mumber</li>
+<li>string</li>
+<li>boolean</li>
+<li>null</li>
+<li>undefined</li>
+<li>object</li>
+</ul>
+<p>这之中并没有array类型，想想就知道jQuery肯定是在isArray判断了数组类型，那么它到底怎么判断的，我们需要探究一下，jQuery源码，如果不想读源码，就直接百度或者google。网上一堆结果。你会发现这样一句话：</p>
+<pre><code>Object.prototype.toString.call(obj)
+</code></pre><p>没错，这就是原生js判断数据类型的方法：可以参考 <a href="http://blog.sina.com.cn/s/blog_51048da70101grz6.html" target="_blank" rel="external">如何判断js中的数据类型</a></p>
+<p>我们给数组对象添加一个铺平数组的api：panelArr</p>
+<pre><code>Array.prototype.panelArr = function(){
+    var newArr = [];
+    var isArray = function(obj) {
+        return Object.prototype.toString.call(obj) === &apos;[object Array]&apos;;
+    };
+    var dealArr = function(arr){
+        for (var i = 0;i&lt;arr.length;i++){
+            isArray(arr[i]) ? dealArr(arr[i]) : newArr.push(arr[i]);
+        }
+    };
+    dealArr(this);
+    return newArr;
+};
+</code></pre><p>可以验证一下，比如执行 <strong>[1,[[2,3],3],4].panelArr()</strong> 的结果就是 [1,2,3,3,4]。</p>
+<p>西泊浪人&copy;blog.western-ranger.com</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/20/javascript实现数组铺平/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-javascript实现数组元素去重" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/javascript实现数组元素去重/">javascript实现数组元素去重</a>
+    </h1>
+  
+
+        <a href="/2016/02/20/javascript实现数组元素去重/" class="archive-article-date">
+  	<time datetime="2016-02-20T01:21:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如题,这算是一个比较经典的面试题了吧.在日常开发中也会经常遇到.研究一下还是很有价值的,让我们剖析一下.</p>
+<p>随意定义一个数组,比如</p>
+<pre><code>var arr = [1,2,2,3,4];
+</code></pre><p>arr[1]和arr[2]都为2，我们只保留一个。</p>
+<blockquote>
+<p>在解决这个问题之前我们了解一下一种结构叫做”哈希表”，类似这种：</p>
+</blockquote>
+<pre><code>var hash_example = {
+    &quot;百度&quot;    :&quot;http://www.baidu.com/&quot;,
+    &quot;Google&quot;  :&quot;http://www.google.com/&quot;,
+    &quot;微软&quot;    :&quot;http://www.microsoft.com/&quot;
+};
+</code></pre><blockquote>
+<p>怎么样，并不陌生吧，我们最熟悉的键值对形式。<br>刚才那个arr数组有五个元素，我们可以给他对应的做一个五个元素的hash表，让他的每个元素作为hash表的“键”，这样：</p>
+</blockquote>
+<pre><code>var hash_example = {
+    1 : &quot; &quot;,
+    2 : &quot; &quot;,
+    2 : &quot; &quot;,
+    3 : &quot; &quot;,
+    4 : &quot; &quot;
+};
+</code></pre><blockquote>
+<p>在hash_example中有两个重复的项。我们如果把每个键的值用true和false表示，第一次粗现就标记为true，第二次就标记为false，我们只需要去掉键值为false的项，然后把存下来的键放到数组里就ok了。</p>
+</blockquote>
+<pre><code>var hash_example = {
+    1 : true,
+    2 : true,
+    2 : false,
+    3 : true,
+    4 : true
+};
+</code></pre><blockquote>
+<p>利用这个原理，我们首先定义一个空数组来存放去重之后的结果</p>
+</blockquote>
+<pre><code>var newArr = [];
+</code></pre><blockquote>
+<p>然后定义一个hash表结构</p>
+</blockquote>
+<pre><code>var hash = {};
+</code></pre><blockquote>
+<p>遍历数组，构建哈希表，并得出新数组</p>
+</blockquote>
+<pre><code>for(var i=0;i&lt;arr.length;i++){
+    if(!hash[arr[i]]){
+        newArr.push(arr[i]);
+        hash[arr[i]] = true;        
+    }
+}
+</code></pre><blockquote>
+<p>大功告成。</p>
+</blockquote>
+<p><em>西泊浪人&copy;blog.western-ranger.com</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/20/javascript实现数组元素去重/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-git的基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/31/git的基本用法/">git的基本用法</a>
+    </h1>
+  
+
+        <a href="/2016/01/31/git的基本用法/" class="archive-article-date">
+  	<time datetime="2016-01-31T08:20:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-31</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前一直是用gitextension开发，图形化界面的好处就是简单易懂，现在可能我水平还不够，不能够说出他很多坏处，至于现在我开始放弃使用git的图形化界面完全是因为现在的公司，现在的工作开发仓库用git，所以平时也就联系一下使用git命令行呗。</p>
+<p>使用git命令好处还是有的。这练着练着就觉得git的命令行方式确实比较高端，首先看着高端，毕竟要记住好多命令嘛，装个逼。。哈哈。其次，用命令行基本不会出行卡机的现象，用过gitextension的都知道那个软件经常会卡。然后我记得第一次拉去git项目必须用命令行吧。用git extension拉取不下来。命令行的好处就体现出来了。最重要的是，如果你能把git的命令掌握的很熟练的话，操作起来肯定比用图形化界面快。</p>
+<p>经过这几天的摸索，现在总结学到的基本命令：</p>
+<ul>
+<li>克隆档案库： <code>git clone 【github上的那个https或者ssh地址】</code>;</li>
+<li>添加，新添加文件要提交，首先：<code>git add --all</code>;</li>
+<li>提交本地档案库，都加上之后再：<code>git commit -a</code>，如果没有新添加的文件，直接运行此命令;</li>
+<li>查看分支状态：<code>git status</code>，从这里可以看出那些文件没提交，哪些问价是新添加的;</li>
+<li>提交远程档案库，<code>git push</code>，这样，你就可以从另一台电脑上访问github查看你在别的电脑上提交的代码了；</li>
+<li>拉取代码：<code>git pull</code>；</li>
+<li>新建分支：<code>git branch 【分支名字】</code>;</li>
+<li>切换分支：<code>git checkout [分支名字]</code>，注意切换之前必须在本地提交代码;</li>
+<li>把分支加入远程端：<code>git remote add [远程服务器端名字，随便起一个名字][github上的那个https或者ssh地址]</code>；</li>
+<li>推送新分支到github上：<code>git push [远程服务器端名字][分支名字]</code>;</li>
+<li>查看最近操作记录：<code>git log</code>;</li>
+<li></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/31/git的基本用法/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-js重复绑定事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/26/js重复绑定事件/">js重复绑定事件</a>
+    </h1>
+  
+
+        <a href="/2016/01/26/js重复绑定事件/" class="archive-article-date">
+  	<time datetime="2016-01-26T09:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天被自己绑定click事件坑了一下子，学浅乃危险之事。如果读书多了就不会犯这样的错误了。<br><img src="http://img.blog.csdn.net/20150715111453995" alt="如图">        <img src="http://img.blog.csdn.net/20150715111726739" alt="这里写图片描述"><br>这样一个下拉框，点击“我选1”会生成一条“hello world！！！”，点“继续添加”则会继续添加。如果点击”我选2“也会像之前一样，首先把之前的记录清除掉，再生成一条，可以继续添加，一次生成一条”hello world！！！“</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var nodeArea = &apos;&lt;div class=&quot;moOrRanArea&quot; style=&quot;border:#000 solid 1px;margin:10px 0;&quot;&gt;\</div><div class="line">							hello world!!!\</div><div class="line">						&lt;/div&gt;&apos;;</div><div class="line">		$(&quot;#moOrRan&quot;).change(function()&#123;</div><div class="line">			if(this.value!=0)&#123;</div><div class="line">				$(&quot;.externalArea .moOrRanArea&quot;).remove();</div><div class="line">				$(&quot;.externalArea&quot;).show().append($(nodeArea));</div><div class="line">				$(&quot;#addArea&quot;).bind(&quot;click&quot;,function()&#123;</div><div class="line">					$(&quot;.externalArea&quot;).append($(nodeArea));</div><div class="line">				&#125;)</div><div class="line"></div><div class="line">			&#125;else&#123;</div><div class="line">				$(&quot;.externalArea&quot;).hide();</div><div class="line">				$(&quot;.externalArea .moOrRanArea&quot;).remove();</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
+<p>看起来没啥问题，但是实际运行是有问题的，从”我选1“切换到”他选二“，刚切换过去是这样的：<br><img src="http://img.blog.csdn.net/20150715112340987" alt="这里写图片描述"><br>我点一次”继续添加“就成这样了：<br><img src="http://img.blog.csdn.net/20150715112449220" alt="这里写图片描述"><br>点击一次，增加了两条！！！<br>我考虑了半天。。。然后打断点各种试，发现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;#addArea&quot;).bind(&quot;click&quot;,function()&#123;</div><div class="line">					$(&quot;.externalArea&quot;).append($(nodeArea));</div><div class="line">				&#125;)</div></pre></td></tr></table></figure>
+<p>从”我选1“切换到”他选2“的时候，每点击一次继续添加，这段代码执行了两边。原来是”$(“#addArea”)“，这个dom元素添加了两次click事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;#addArea&quot;).unbind(&quot;click&quot;).bind(&quot;click&quot;,function()&#123;...&#125;)</div></pre></td></tr></table></figure>
+<p>首先绑定unbind就搞定。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/26/js重复绑定事件/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-sass的安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/26/sass的安装使用/">sass的安装使用</a>
+    </h1>
+  
+
+        <a href="/2016/01/26/sass的安装使用/" class="archive-article-date">
+  	<time datetime="2016-01-26T09:09:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用scss来书写css还是很方便的。首先是ruby的下载与安装,下载地址是<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> 。下载完以后，我们打开安装文件，点击下一步安装即可，注意</p>
+<p><img src="http://img.blog.csdn.net/20150721145106215" alt="这里写图片描述"></p>
+<p>在这里下面打上勾，防止以后运行命令的时候找不到。<br>安装完成后，点击后打开。<br>运行命令 gem install sass </p>
+<p><img src="http://img.blog.csdn.net/20150721145217447" alt="这里写图片描述"></p>
+<p>然后等待安装完成，第一次安装可能会花费时间比较长，也有可能是被屏蔽了，多试几次<br>就可以。<br>下一步我们安装compass，运行命令 gem install compass</p>
+<p><img src="http://img.blog.csdn.net/20150721145357549" alt="这里写图片描述"></p>
+<p>然后也是等待安装。<br>安装完成后 运行 sass -v 和 compass -v。表明已经安装成功。<br>对于使用，比如你新建一个项目叫test在e盘下， 首先进入e盘的test里。</p>
+<p><img src="http://img.blog.csdn.net/20150721145559730" alt="这里写图片描述"></p>
+<p>然后我们在test中建一个文件夹用来存放css样式 ， 用命令compass create style</p>
+<p><img src="http://img.blog.csdn.net/20150721145645673" alt="这里写图片描述"></p>
+<p>点回车，会生成一大堆代码，style文件就建好了，<br>style文件夹里生成了这几个文件：</p>
+<p><img src="http://img.blog.csdn.net/20150721145802659" alt="这里写图片描述"></p>
+<p>然后接着上面的黑框输入如下内容</p>
+<p><img src="http://img.blog.csdn.net/20150721145919805" alt="这里写图片描述"></p>
+<p>表明监听成功，然后就可以在sass文件夹下的文件里写样式了（比如在ie.scss里）。</p>
+<p><img src="http://img.blog.csdn.net/20150721150015760" alt="这里写图片描述"></p>
+<p>引用样式还是引stylesheets文件夹下的css文件，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link style=&quot;stylesheet&quot; href=&quot;style/stylesheets/ie.css&quot;&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20150721150118596" alt="这里写图片描述"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/26/sass的安装使用/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 西泊浪人
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://western-ranger.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西泊园</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://xibolang.ren" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西泊浪人</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://firekylin.western-ranger.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>firekylin</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://m.western-ranger.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西泊园无线端</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://gold.xitu.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>掘金稀土</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家~~~</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

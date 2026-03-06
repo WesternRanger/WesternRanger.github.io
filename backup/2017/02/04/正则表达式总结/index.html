@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://blog.western-ranger.com">
+  <title>正则表达式总结 | 西泊浪人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式：
+使用一个正则表达式字面量，如下所示：
+1var re = /ab+c/;
+正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。
+调用RegExp对象的构造函数，如下所示：
+1var re = new RegExp(&amp;quot;ab+c&amp;quot;);
+使用构造函数，提供了对正则表达式运行时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式总结">
+<meta property="og:url" content="http://blog.western-ranger.com/2017/02/04/正则表达式总结/index.html">
+<meta property="og:site_name" content="西泊浪人">
+<meta property="og:description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式：
+使用一个正则表达式字面量，如下所示：
+1var re = /ab+c/;
+正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。
+调用RegExp对象的构造函数，如下所示：
+1var re = new RegExp(&amp;quot;ab+c&amp;quot;);
+使用构造函数，提供了对正则表达式运行时">
+<meta property="og:updated_time" content="2017-02-04T02:06:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式总结">
+<meta name="twitter:description" content="正则表达式创建一个正则表达式你可以通过下面两种方法创建一个正则表达式：
+使用一个正则表达式字面量，如下所示：
+1var re = /ab+c/;
+正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。
+调用RegExp对象的构造函数，如下所示：
+1var re = new RegExp(&amp;quot;ab+c&amp;quot;);
+使用构造函数，提供了对正则表达式运行时">
+  
+    <link rel="alternative" href="/atom.xml" title="西泊浪人" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="http://7xp7rf.com1.z0.glb.clouddn.com/1.jpeg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">西泊浪人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">阿基米德：给我个支点，我能撬动地球。西泊浪人：你咋不上天呢。</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a data-idx="1" q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a data-idx="2" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/WesternRanger" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/WesternRanger" title="weibo"><i class="icon-weibo"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide">西泊浪人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="http://7xp7rf.com1.z0.glb.clouddn.com/1.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">西泊浪人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">阿基米德：给我个支点，我能撬动地球。西泊浪人：你咋不上天呢。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+		        
+		        	<li><a href="/archives">所有文章</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/WesternRanger" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/WesternRanger" title="weibo"><i class="icon-weibo"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-正则表达式总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      正则表达式总结
+    </h1>
+  
+
+        <a href="/2017/02/04/正则表达式总结/" class="archive-article-date">
+  	<time datetime="2017-02-04T02:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u6B63_u5219_u8868_u8FBE_u5F0F"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="u521B_u5EFA_u4E00_u4E2A_u6B63_u5219_u8868_u8FBE_u5F0F"><a href="#u521B_u5EFA_u4E00_u4E2A_u6B63_u5219_u8868_u8FBE_u5F0F" class="headerlink" title="创建一个正则表达式"></a>创建一个正则表达式</h2><p>你可以通过下面两种方法创建一个正则表达式：</p>
+<p>使用一个正则表达式字面量，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = /ab+c/;</div></pre></td></tr></table></figure>
+<p>正则表达式字面量在脚本加载后编译。若你的正则表达式是常量，使用这种方式可以获得更好的性能。</p>
+<p>调用<code>RegExp</code>对象的构造函数，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var re = new RegExp(&quot;ab+c&quot;);</div></pre></td></tr></table></figure>
+<p>使用构造函数，提供了对正则表达式运行时的编译。当你知道正则表达式的模式会发生改变， 或者你事先并不了解它的模式或者是从其他地方（比如用户的输入），得到的代码这时比较适合用构造函数的方式。</p>
+<h4 id="u6B63_u5219_u8868_u8FBE_u5F0F_u652F_u6301_u7684_u5B57_u7B26_u8F6C_u4E49"><a href="#u6B63_u5219_u8868_u8FBE_u5F0F_u652F_u6301_u7684_u5B57_u7B26_u8F6C_u4E49" class="headerlink" title="正则表达式支持的字符转义"></a>正则表达式支持的字符转义</h4><table>
+<thead>
+<tr>
+<th>字符或序列</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>除以下字符外的所有字符：。 $ ^ { [ ( \</td>
+<td>) * + ? \</td>
+<td>“字符或序列”列中未包含的字符在正则表达式中没有特殊含义；此类字符与自身匹配。“字符或序列”列中包括的字符均为特殊的正则表达式语言元素。 若要在正则表达式中匹配这些字符，必须将其转义或纳入 <a href="https://msdn.microsoft.com/zh-cn/library/20bw873z(v=vs.110" target="_blank" rel="external">ppositive 字符组</a>.aspx)。 例如，正则表达式 <code>\$\d+</code> 或 <code>[$]\d+</code> 匹配“$1200”。</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>匹配响铃（警报）字符，<code>\u0007</code>。</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>在 <code>[</code><em>character_group</em><code>]</code> 字符类中，匹配退格，<code>\u0008</code>。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/20bw873z(v=vs.110" target="_blank" rel="external">字符类</a>.aspx)。） 在字符类之外，<code>\b</code> 是匹配字边界的定位点。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/h5181w5w(v=vs.110" target="_blank" rel="external">定位点</a>.aspx)。）</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>匹配制表符，<code>\u0009</code>。</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>匹配回车，<code>\u000D</code>。 请注意，<code>\r</code> 不等同于换行符，<code>\n</code>。</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>匹配垂直制表符，<code>\u000B</code>。</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>匹配换页，<code>\u000C</code>。</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>匹配换行，<code>\u000A</code>。</td>
+</tr>
+<tr>
+<td><code>\e</code></td>
+<td>匹配转义，<code>\u001B</code>。</td>
+</tr>
+<tr>
+<td><code>\</code> <em>nnn</em></td>
+<td>匹配 ASCII 字符，其中 <em>nnn</em> 包含表示八进制字符代码的两位数或三位数。 例如，<code>\040</code> 表示空格字符。 如果此构造仅包含一个数字（如 <code>\2</code>）或者它对应捕获组的编号，则将它解释为向后引用。 （请参阅<a href="https://msdn.microsoft.com/zh-cn/library/thwdfzxy(v=vs.110" target="_blank" rel="external">反向引用构造</a>.aspx)。）</td>
+</tr>
+<tr>
+<td><code>\x</code> <em>nn</em></td>
+<td>匹配 ASCII 字符，其中 <em>nn</em> 是两位数的十六进制字符代码。</td>
+</tr>
+<tr>
+<td><code>\c</code> <em>X</em></td>
+<td>匹配 ASCII 控制字符，其中 X 是控制字符的字母。 例如，<code>\cC</code> 为 CTRL-C。</td>
+</tr>
+<tr>
+<td><code>\u</code> <em>nnnn</em></td>
+<td>匹配的 UTF-16 代码单元，单元值是 <em>nnnn</em> 十六进制。 <strong>Note:</strong> .NET Framework 不支持用于指定 Unicode 的 Perl 5 字符转义。 Perl 5 字符转义采用以下格式 <code>\x{</code><em>####</em><code>…}</code>，其中 <em>####</em><code>…</code> 是一系列十六进制数字。 改用 <code>\u</code><em>nnnn</em>。</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>后接字符未识别为转义字符时，将匹配此字符。 例如，<code>\*</code> 匹配星号 (*) 并等同于 <code>\x2A</code>。</td>
+</tr>
+</tbody>
+</table>
+<p>RegExp对象方法：</p>
+<ul>
+<li>exec</li>
+<li>test</li>
+</ul>
+<p>String内置构造函数方法：</p>
+<ul>
+<li>match</li>
+<li>search</li>
+<li>replace</li>
+<li>split</li>
+</ul>
+<p>####列举日常使用的正则表达式匹配：</p>
+<ul>
+<li><p>匹配url参数：key需要传入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/[?&amp;]&quot;+ key +&quot;=([^&amp;]*)/</div></pre></td></tr></table></figure>
+</li>
+<li><p>匹配邮箱：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^[a-zA-Z0-9][a-zA-Z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/</div></pre></td></tr></table></figure>
+</li>
+<li><p>身份证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^\d&#123;6&#125;(18|19|20)?\d&#123;2&#125;(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d&#123;3&#125;(\d|X|x)$/</div></pre></td></tr></table></figure>
+</li>
+<li><p>html标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/&lt;[^&gt;]+&gt;/ or /&lt;[a-z|/|A-Z]+&gt;/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://o8k8bw35y.bkt.clouddn.com/WechatIMG4.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://o8k8bw35y.bkt.clouddn.com/WechatIMG5.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.western-ranger.com/2017/02/04/正则表达式总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/06/烟花易冷创作背景/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          烟花易冷创作背景
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/04/浏览器从输入URL到显示总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器从输入URL到显示总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="正则表达式总结" data-title="正则表达式总结" data-url="http://blog.western-ranger.com/2017/02/04/正则表达式总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 西泊浪人
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://western-ranger.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西泊园</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://xibolang.ren" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西泊浪人</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://firekylin.western-ranger.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>firekylin</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://m.western-ranger.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西泊园无线端</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://gold.xitu.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>掘金稀土</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家~~~</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
